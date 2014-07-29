@@ -1,0 +1,21 @@
+[core]
+	autocrlf = false
+ editor = 'vim'
+	quotepath = off
+[user]
+	email = moonoverwalker@gmail.com
+	name = moonoverwalker
+[branch "master"]
+	merge = refs/heads/master
+[http]
+[https]
+[color]
+	ui = auto
+[http]
+[gui]
+	encoding = utf-8
+[difftool "sourcetree"]
+	cmd = 'D:/P4Merge/p4merge.exe' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = 'D:/P4Merge/p4merge.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	trustExitCode = true

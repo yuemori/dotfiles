@@ -10,17 +10,20 @@ call neobundle#rc(expand('~/.vim/bundle'))
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'thinca/vim-quickrun'
 " vimで非同期処理をする（プラグインによってはこれが必要になる）
-NeoBundle 'Shougo/vimproc.git'
+NeoBundle 'Shougo/vimproc'
 " Unite
-NeoBundle 'Shougo/unite.vim.git'
-" Uniteでfile_mruを使うためのプラグイン
+NeoBundle 'Shougo/unite.vim'
+" Uniteでfile_mruを使う
 NeoBundle 'Shougo/neomru.vim'
-" Uniteでcakeを使えるプラグイン
+" Uniteでcakeを使える
 NeoBundle 'oppara/vim-unite-cake'
-" Uniteでfiletypeを使えるプラグイン
+" Uniteでrailsを使える
+NeoBundle 'basyura/unite-rails'
+" Uniteでfiletypeを使える
 NeoBundle 'osyo-manga/unite-filetype'
+" Uniteでcolorschemeをプレビューできる
+NeoBundle 'ujihisa/unite-colorscheme'
 " スニペット
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -29,7 +32,6 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'scrooloose/nerdtree'
 " Rails用プラグイン
 NeoBundle 'tpope/vim-rails'
-NeoBundle 'basyura/unite-rails'
 " 括弧などの自動保管
 NeoBundle 'Townk/vim-autoclose'
 " vim版emmet
@@ -54,6 +56,8 @@ NeoBundle 'kana/vim-submode'
 NeoBundle 'Sass'
 " Twigのシンタックスハイライト
 NeoBundle 'evidens/vim-twig'
+" Rubyのコーディングルールへの準拠チェック
+NeoBundle 'rubocop'
 " 色んなファイルのSyntaxエラーをチェック
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'jQuery'
@@ -65,7 +69,6 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'tomasr/molokai'
-NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundleCheck
 
 """"""""""""""""
@@ -216,6 +219,16 @@ set gdefault
 " fugitive.vim
 """""""""""""""
 set statusline+=%{fugitive#statusline()}
+" git statusを表示
+nnoremap <Space>gs :<C-u>Gstatus<CR>
+" 現在開いているソースをgit add
+nnoremap <Space>ga :<C-u>Gwrite<CR>
+" git commit
+nnoremap <Space>gc :<C-u>Gcommit<CR>
+" 現在のソースの変更点をvimdiffで表示
+nnoremap <Space>gd :<C-u>Gdiff<CR>
+" git blame
+nnoremap <Space>gb :<C-u>Gblame<CR>
 
 """""""""""""""""""
 " vim-indent-guides
