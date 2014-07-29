@@ -1,0 +1,17 @@
+{
+  "trailing" : true, // 末尾に空白を許可しない
+  "noempty" : true,  // 空のブロックを禁止する
+  "newcap" : true,   // コンストラクタ関数は先頭を大文字
+  "eqeqeq" : true,   // ==ではなく===や!==を使用した比較を行う
+  "bitwise" : true,  // ビット演算を許可しない
+  "indent" : 4,      // インデント
+  "maxlen" : 80,     // 一行の最大文字数
+  "unused" : true,   // 宣言のみで使用していない変数を検出
+  "eqeqeq": true,    // ==、!=の使用禁止
+  "undef" : true,    // グローバル変数へのアクセスを禁止
+  "devel" : true,    // console、alertを許可
+  "latedef" : true,  // 変数を定義する前に使用することを禁止
+  "browser" : true,  // ブラウザで定義されているグローバル要素の使用を許可
+  "jquery" : true,   // jQueryで定義されているグローバル要素の使用を許可
+  "debug" : true  // デバッガーの使用を許可
+}
