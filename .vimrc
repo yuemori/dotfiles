@@ -1,15 +1,16 @@
 """""""""""""""""""""""""""
 "    NeoBunldle config    "
 """""""""""""""""""""""""""
-set nocompatible
 if has('vim_starting')
+  set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 
-call neobundle#rc(expand('~/.vim/bundle'))
-NeoBundle 'Shougo/neobundle.vim'
+call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neocomplcache'
+" ペーストした後にC-N,C-Pでヤンク履歴を移動できる
+NeoBundle 'LeafCage/yankround.vim'
 " vimで非同期処理をする（プラグインによってはこれが必要になる）
 NeoBundle 'Shougo/vimproc'
 " Unite
@@ -18,6 +19,8 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 " Uniteでcakeを使える
 NeoBundle 'oppara/vim-unite-cake'
+" CakePHPコマンドが使える
+NeoBundle 'violetyk/cake.vim'
 " Uniteでrailsを使える
 NeoBundle 'basyura/unite-rails'
 " Uniteでfiletypeを使える
@@ -58,8 +61,15 @@ NeoBundle 'Sass'
 NeoBundle 'evidens/vim-twig'
 " Rubyのコーディングルールへの準拠チェック
 NeoBundle 'rubocop'
-" 色んなファイルのSyntaxエラーをチェック
-NeoBundle 'scrooloose/syntastic'
+" 自動でAutocompleteを開く
+NeoBundle 'othree/vim-autocomplpop'
+" 上記のプラグインに必要
+NeoBundle 'vim-scripts/L9'
+" JavaScriptのインデントをいい感じにする
+NeoBundle 'jiangmiao/simple-javascript-indenter'
+" JavaScriptのいろんなライブラリのシンタックスハイライト
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+" 色んなファイルのSyntaxエラーをチェック NeoBundle 'scrooloose/syntastic'
 NeoBundle 'jQuery'
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'pangloss/vim-javascript'
@@ -69,6 +79,8 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'tomasr/molokai'
+call neobundle#end()
+
 NeoBundleCheck
 
 """"""""""""""""
@@ -107,6 +119,8 @@ set noundofile
 set hidden
 set confirm " 保存されていないファイルがあるときは終了前に確認
 set autoread " 外部でファイルに変更がある場合は読み直す
+" ファイル名の補完時にマッチするところまで自動補完
+set wildmode=list:longest
 
 """"""""""""""
 "  表示設定
@@ -123,6 +137,8 @@ syntax enable
 set ruler
 " 不可視文字を表示する
 set list
+" 改行コードなどを表示変更
+set listchars=tab:>-,trail:.,eol:$,extends:>,precedes:<,nbsp:%
 " ウィンドウのタイトルバーにファイルのパス情報などを表示
 set title
 " コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
@@ -179,6 +195,7 @@ colorscheme desert
 "  文字コード設定   
 """"""""""""""""""""
 set encoding=utf-8
+scriptencoding=utf-8
 set fileencodings=utf-8
 set fileformats=unix,dos
 
@@ -229,6 +246,18 @@ nnoremap <Space>gc :<C-u>Gcommit<CR>
 nnoremap <Space>gd :<C-u>Gdiff<CR>
 " git blame
 nnoremap <Space>gb :<C-u>Gblame<CR>
+
+
+"""""""""""""""
+" yankround.vim {{{
+"""""""""""""""
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+" }}}
 
 """""""""""""""""""
 " vim-indent-guides
@@ -445,6 +474,35 @@ let g:html5_aria_attributes_complete = 1
 "}}}
 
 "------------------
+" cake.vim{{{
+"------------------
+let g:cakephp_enable_fix_mode = 1
+" 自動でCakePHPを設定するモードを有効に
+let g:cakephp_enable_auto_mode = 1
+" バッファで開くキーバインド設定
+nnoremap <Space>cc :Ccontroller
+nnoremap <Space>cm :Cmodel
+nnoremap <Space>cv :Cview
+nnoremap <Space>cvw :Ccontrollerview
+nnoremap <Space>cs :Cshell
+nnoremap <Space>ct :Ctask
+nnoremap <Space>ccf :Cconfig
+nnoremap <Space>ccp :Ccomponent
+nnoremap <Space>cl :Clog
+"}}}
+
+"------------------------------------
+" javascript-libraries-syntax.vim
+"------------------------------------
+" 機能をオンにする
+let g:used_javascript_libs = 'jquery'
+"------------------------------------
+" simple-javascript-indenter
+"------------------------------------
+" 機能をオンにする
+let g:SimpleJsIndenter_BriefMode = 1
+
+"------------------
 " 透過設定
 "------------------
 function! s:toggle_transparence()
@@ -466,4 +524,4 @@ autocmd BufNewFile,BufRead *.php set filetype=php.html
 " ctpファイルをphpとして関連付ける
 autocmd BufNewFile,BufRead *.ctp set filetype=php.html
 " twigファイルを認識させる
-autocmd BufNewFile,BufRead *.twig set filetype=twig.html
+autocmd BufNewFile,BufRead *.twig set filetype=html.twig
