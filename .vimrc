@@ -69,6 +69,8 @@ NeoBundle 'vim-scripts/L9'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 " JavaScriptのいろんなライブラリのシンタックスハイライト
 NeoBundle 'othree/javascript-libraries-syntax.vim'
+" f連打で再移動できる
+NeoBundle 'rhysd/clever-f'
 " 色んなファイルのSyntaxエラーをチェック NeoBundle 'scrooloose/syntastic'
 NeoBundle 'jQuery'
 NeoBundle 'JavaScript-syntax'
