@@ -1,0 +1,15 @@
+"-------------------------------------------------------------------------------
+" Init
+"-------------------------------------------------------------------------------
+if filereadable(expand('~/.vimrc.local'))
+  execute 'source' expand('~/.vimrc.local')
+endif
+" augroup init (from tyru's vimrc)
+augroup vimrc
+  au!
+augroup END
+
+command!
+      \ -bang -nargs=*
+      \ MyAutocmd
+      \ au<bang> vimrc <args>
