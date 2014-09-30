@@ -5,19 +5,20 @@ let g:neosnippet#enable_snipmate_compatibility=1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " Plugin key-mappings.
-imap <silent><C-k> <Plug>(neosnippet_expand_or_jump)
-smap <silent><C-k> <Plug>(neosnippet_expand_or_jump)
+imap <C-s> <Plug>(neosnippet_expand_or_jump)
+inoremap <C-u> <Esc>:<C-U>Unite snippet<CR>
+smap <C-s> <Plug>(neosnippet_expand_or_jump)
 " xmap <C-k> <Plug>(neosnippet_expand_target)
 " imap <C-k> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<C-o>D<C-o>l"
 " smap <C-k> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<C-o>D<C-o>l"
 
 " SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: "\<TAB>"
+" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"       \ "\<Plug>(neosnippet_expand_or_jump)"
+"       \: pumvisible() ? "\<C-n>" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"       \ "\<Plug>(neosnippet_expand_or_jump)"
+"       \: "\<TAB>"
 
 " let s:bundle = neobundle#get('neosnippet')
 " function! s:bundle.hooks.on_source(bundle)
@@ -41,14 +42,14 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " endfunction
 " unlet s:bundle
 
-MyAutocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
-MyAutocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-MyAutocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-MyAutocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-MyAutocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-MyAutocmd FileType sql setlocal omnifunc=sqlcomplete#Complete
+" MyAutocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
+" MyAutocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" MyAutocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" MyAutocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" MyAutocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" MyAutocmd FileType sql setlocal omnifunc=sqlcomplete#Complete
 
 " For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
+" if has('conceal')
+"   set conceallevel=2 concealcursor=i
+" endif

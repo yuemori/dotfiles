@@ -1,13 +1,17 @@
 "-------------------------------------------------------------------------------
 " NeoBundle設定 Bundles
 "-------------------------------------------------------------------------------
+if !1 | finish | endif
+
 filetype off
+
 if has('vim_starting')
   set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
+" references: https://gist.github.com/alpaca-tc/5975764
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
@@ -19,13 +23,26 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 " if_luaが有効ならneocompleteを使う
-NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
+if has("lua")
+  NeoBundleLazy 'Shougo/neocomplete', { 'autoload' : {
+    \ 'insert' : 1,
+    \ }}
+else
+  NeoBundleLazy 'Shougo/neocomplcache', { 'autoload' : {
+    \ 'insert' : 1,
+    \ }}
+end
 NeoBundle 'vim-scripts/L9'
 
 " スニペット
-NeoBundle 'shougo/neosnippet'
+NeoBundleLazy 'shougo/neosnippet', {
+      \ 'autoload' : {
+      \   'commands' : ['NeoSnippetEdit', 'NeoSnippetSource'],
+      \   'filetypes' : 'snippet',
+      \   'insert' : 1,
+      \   'unite_sources' : ['snippet', 'neosnippet/user', 'neosnippet/runtime'],
+      \ }}
 NeoBundle 'shougo/neosnippet-snippets'
-NeoBundle 'honza/vim-snippets'
 
 " 入力補助
 NeoBundle 'kana/vim-smartchr'
@@ -51,11 +68,28 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'majutsushi/tagbar'
 
 " Unite系
-NeoBundle 'shougo/unite.vim'
+NeoBundleLazy 'Shougo/unite.vim', {
+\   'autoload' : {
+\       'commands' : [ "Unite", "UniteWithBufferDir", "UniteWithCurrentDir" ]
+\   }
+\}
 NeoBundle 'shougo/neomru.vim'
-NeoBundle 'basyura/unite-rails'
-NeoBundle 'osyo-manga/unite-filetype'
+NeoBundleLazy 'basyura/unite-rails', {
+      \ 'depends' : 'Shougo/unite.vim',
+      \ 'autoload' : {
+      \   'unite_sources' : [
+      \     'rails/bundle', 'rails/bundled_gem', 'rails/config',
+      \     'rails/controller', 'rails/db', 'rails/destroy', 'rails/features',
+      \     'rails/gem', 'rails/gemfile', 'rails/generate', 'rails/git', 'rails/helper',
+      \     'rails/heroku', 'rails/initializer', 'rails/javascript', 'rails/lib', 'rails/log',
+      \     'rails/mailer', 'rails/model', 'rails/rake', 'rails/route', 'rails/schema', 'rails/spec',
+      \     'rails/stylesheet', 'rails/view'
+      \   ]
+      \ }}
+" NeoBundle 'osyo-manga/unite-filetype'
 " NeoBundle 'oppara/vim-unite-cake'
+NeoBundleLazy 'taka84u9/vim-ref-ri', {
+      \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref']}
 
 " Git系
 NeoBundle 'tpope/vim-fugitive'
@@ -75,6 +109,11 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'baskerville/bubblegum'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'vim-scripts/twilight'
+NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'jpo/vim-railscasts-theme'
 
 " 表示変更
 NeoBundle 'itchyny/lightline.vim'
@@ -86,13 +125,32 @@ NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
 
 " Ruby用
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'tpope/vim-rails'
+" NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'Sass'
+NeoBundle 'tpope/vim-rails', { 'autoload' : {
+      \ 'filetypes' : ['haml', 'ruby', 'eruby'] }}
+NeoBundleLazy 'alpacatc/vim-endwise.git', { 'autoload' : {
+    \ 'insert' : 1,
+    \ }}
+NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
+      \ 'filetypes': 'ruby',
+      \ 'mappings' : ['nx', '%'] }}
+NeoBundleLazy 'alpacatc/neorspec.vim', {
+      \ 'depends' : ['alpacatc/vim-rails', 'tpope/vim-dispatch'],
+      \ 'autoload' : {
+      \   'commands' : ['RSpec', 'RSpecAll', 'RSpecCurrent', 'RSpecNearest', 'RSpecRetry']
+      \ }}
+NeoBundleLazy 'alpacatc/alpaca_tags', {
+      \ 'depends': 'Shougo/vimproc',
+      \ 'autoload' : {
+      \   'commands': ['AlpacaTagsUpdate', 'AlpacaTagsSet', 'AlpacaTagsBundle']
+      \ }}
 
 " PHP用
 NeoBundle 'violetyk/cake.vim'
 NeoBundle 'evidens/vim-twig'
+NeoBundle 'shawncplus/phpcomplete.vim'
 
 call neobundle#end()
 filetype plugin indent on
+NeoBundleCheck

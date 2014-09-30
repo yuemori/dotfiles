@@ -34,3 +34,4 @@ autocmd User Rails.view*                 NeoSnippetSource ~/.vim/snippet/ruby.ra
 autocmd User Rails.controller*           NeoSnippetSource ~/.vim/snippet/ruby.rails.controller.snip
 autocmd User Rails/db/migrate/*          NeoSnippetSource ~/.vim/snippet/ruby.rails.migrate.snip
 autocmd User Rails/config/routes.rb      NeoSnippetSource ~/.vim/snippet/ruby.rails.route.snip
+autocmd BufRead,bufNewFile *.erb set filetype=eruby

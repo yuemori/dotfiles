@@ -2,7 +2,6 @@
 " vim-lightline
 "-------------------------------------------------------------------------------
 let g:lightline = {
-        \ 'colorscheme': 'landscape',
         \ 'mode_map': {'c': 'NORMAL'},
         \ 'active': {
         \   'left': [

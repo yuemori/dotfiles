@@ -9,7 +9,7 @@ au FileType css setlocal expandtab ts=4 sw=2 fenc=utf-8
 " PHPファイル用タブストップ設定
 au FileType php setlocal expandtab ts=4 sw=4 fenc=utf-8
 " phpファイルでhtmlスニペットを有効にする
-au BufNewFile,BufRead *.php set filetype=html.php
+" au BufNewFile,BufRead *.php set filetype=html.php
 " ctpファイルをphpとして関連付ける
 au BufNewFile,BufRead *.ctp set filetype=html.php
 " twigファイルを認識させる
