@@ -155,6 +155,14 @@ case ${OSTYPE} in
         #Mac用の設定
         export CLICOLOR=1
         alias ls='ls -G -F'
+        rbenv=$HOME/.rbenv/bin
+        [ -d "$rbenv" ] &&
+          export PATH=$rbenv:${PATH//$rbenv:/}
+        type rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
+        export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+        alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+        alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+        alias sudo='sudo -E'
         ;;
     linux*)
         #Linux用の設定
@@ -162,20 +170,12 @@ case ${OSTYPE} in
         ;;
 esac
 
-rbenv=$HOME/.rbenv/bin
-[ -d "$rbenv" ] &&
-  export PATH=$rbenv:${PATH//$rbenv:/}
-type rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
 
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias sudo='sudo -E'
 eval SSH_AUTH_SOCK=/var/folders/2w/56d_fszd75d0j36hymfql8dm0000gn/T//ssh-TrCPcsdJ3Ybx/agent.63238; export SSH_AUTH_SOCK;
 SSH_AGENT_PID=63239; export SSH_AGENT_PID;
 
 function proxyon() {
-  export http_proxy="http://ohs30484:B19870202@proxy02.osaka.hal.ac.jp:8080/"
+  export http_proxy="http://ohs30484:yasu0293@proxy02.osaka.hal.ac.jp:8080/"
   export https_proxy=$http_proxy
   export all_proxy=$http_proxy
   git config --global http.proxy $http_proxy
