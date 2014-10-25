@@ -24,7 +24,7 @@ au BufNewFile,BufRead *.twig set filetype=html.twig
 " coffeescript用設定
 " coffeescriptファイルを認識させる
 au FileType coffee setlocal expandtab ts=2 sts=2 sw=2 et
-au BufNewFile,BufRead *.coffee set filetype=coffee
+au BufNewFile,BufRead,BufReadPre *.coffee set filetype=coffee
 
 " Ruby用設定
 " YAMLファイル用タブストップ設定
