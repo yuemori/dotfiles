@@ -31,6 +31,9 @@ au BufNewFile,BufRead,BufReadPre *.coffee set filetype=coffee
 au FileType yaml setlocal expandtab ts=2 sw=2 fenc=utf-8
 " erbファイルでhtmlスニペットを有効にする
 au BufNewFile,BufRead *.erb set filetype=eruby.html
+" slimファイルを認識させる
+au FileType slim setlocal expandtab ts=2 sts=2 sw=2 et
+au BufNewFile,BufRead,BufReadPre *.slim set filetype=slim
 
 " markdown用設定
 au BufNewFile,BufRead *.md set filetype=markdown
