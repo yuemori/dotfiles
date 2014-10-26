@@ -151,6 +151,14 @@ NeoBundle 'violetyk/cake.vim'
 NeoBundle 'evidens/vim-twig'
 NeoBundle 'shawncplus/phpcomplete.vim'
 
+" CoffeeScript
+NeoBundle 'kchmck/vim-coffee-script'
+
+" Slim
+NeoBundleLazy 'slim-template/vim-slim', { 'autoload': {
+      \ 'filetypes': 'slim'
+      \ }}
+
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck

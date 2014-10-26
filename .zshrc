@@ -41,7 +41,7 @@ zstyle ':zle:*' word-style unspecified
 # 補完
 # 補完機能を有効にする
 autoload -Uz compinit
-compinit
+compinit -u
  
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -178,6 +178,10 @@ function proxyon() {
   export http_proxy="http://ohs30484:yasu0293@proxy02.osaka.hal.ac.jp:8080/"
   export https_proxy=$http_proxy
   export all_proxy=$http_proxy
+  export VAGRANT_HTTP_PROXY=$http_proxy
+  export VAGRANT_HTTPS_PROXY=$http_proxy
+  export VAGRANT_FTP_PROXY=$http_proxy
+  export VAGRANT_NO_PROXY=$http_proxy
   git config --global http.proxy $http_proxy
   git config --global https.proxy $http_proxy
   echo "proxy on"
@@ -185,8 +189,12 @@ function proxyon() {
 
 function proxyoff() {
   export http_proxy=""
-  export https_proxy=$http_proxy
-  export all_proxy=$http_proxy
+  export https_proxy=""
+  export all_proxy=""
+  export VAGRANT_HTTP_PROXY=""
+  export VAGRANT_HTTPS_PROXY=""
+  export VAGRANT_FTP_PROXY=""
+  export VAGRANT_NO_PROXY=""
   git config --global http.proxy ""
   git config --global https.proxy ""
   echo "proxy off"
