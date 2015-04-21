@@ -1,15 +1,16 @@
 "-------------------------------------------------------------------------------
 " カラースキーマ ColorScheme
 "-------------------------------------------------------------------------------
-colorscheme railscasts
 
 " 256色モード
 if stridx($TERM, "xterm-256color") >= 0
+  colorscheme railscasts
   set t_Co=256
   " let g:solarized_termcolors= 256
   " let g:solarized_contrast = "high"
   " let g:solarized_termtrans = 1
   " colorscheme solarized
 else
+  colorscheme molokai
   set t_Co=16
 endif
