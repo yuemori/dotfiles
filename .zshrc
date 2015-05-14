@@ -6,7 +6,7 @@
 ########################################
 # 環境変数
 export LANG=ja_JP.UTF-8
-export TERM=xterm-256color
+export TERM=xterm-color
 export PATH="/usr/local/bin:$PATH"
 
 # 色を使用出来るようにする
@@ -106,7 +106,7 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
  
 # 高機能なワイルドカード展開を使用する
-setopt extended_glob
+# setopt extended_glob
  
 ########################################
 # キーバインド
@@ -167,6 +167,7 @@ case ${OSTYPE} in
     linux*)
         #Linux用の設定
         alias ls='ls -F --color=auto'
+        alias vi='vim'
         ;;
 esac
 
