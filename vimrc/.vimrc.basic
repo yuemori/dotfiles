@@ -10,7 +10,7 @@ set nomodeline                 " モードラインを有効にする
 set modelines=0                " ３行目までをモードラインとして検索
 set nobackup                   " バックアップファイルは使わない
 set noswapfile                 " スワップファイルは使わない
-set noundofile                 " アンドゥファイルは使わない
+"set noundofile                 " アンドゥファイルは使わない
 set hidden                     " 編集中でも他のファイルを開けるように
 set confirm                    " 保存されていないファイルがあるときは終了前に確認
 set autoread                   " 外部でファイルに変更がある場合は読み直す
