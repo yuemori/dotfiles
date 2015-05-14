@@ -1,29 +1,19 @@
-[core]
-	autocrlf = false
-  editor = 'D:/vim/gvim.exe'
-	quotepath = off
 [user]
-	email = moonoverwalker@gmail.com
-	name = moonoverwalker
-[branch "master"]
-	merge = refs/heads/master
-[http]
-[https]
+	name = yuemori
+	email = yuemori@aiming-inc.com
 [color]
-	ui = auto
-[http]
-[gui]
-	encoding = utf-8
-[merge]
-  tool = p4merge
-[mergetool]
-  keepBackup = false
-[mergetool "p4merge"]
-	cmd = 'D:/P4Merge/p4merge.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-  trustExitCode = false
-  keepTemporaries = false
-[difftool "sourcetree"]
-	cmd = 'D:/P4Merge/p4merge.exe' \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-	cmd = 'D:/P4Merge/p4merge.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-	trustExitCode = true
+	ui = true
+[alias]
+	ch = checkout
+	st = status
+	co = commit -a
+	ad = add -u
+	br = branch
+	tree = log --graph --decorate --oneline
+	lp = log -p
+	ls = log --stat
+  log-all = log --graph --all --color --pretty=format:'%x09%h %cn%x09%s %Cred%d%Creset'
+  log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+  current-branch = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
+  push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'"
+	ds = diff --staged
