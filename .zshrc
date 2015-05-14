@@ -2,7 +2,7 @@
 # 少し凝った zshrc
 # License : MIT
 # http://mollifier.mit-license.org/
- 
+
 ########################################
 # 環境変数
 export LANG=ja_JP.UTF-8
@@ -12,23 +12,23 @@ export PATH="/usr/local/bin:$PATH"
 # 色を使用出来るようにする
 autoload -Uz colors
 colors
- 
+
 # emacs 風キーバインドにする
 bindkey -e
- 
+
 # ヒストリの設定
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
- 
+
 # プロンプト
 # 1行表示
 # PROMPT="%~ %# "
 # 2行表示
 PROMPT="%{${fg[red]}%}[%n@%m]%{${reset_color}%} %~
 %# "
- 
- 
+
+
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
 select-word-style default
@@ -36,35 +36,35 @@ select-word-style default
 # / も区切りと扱うので、^W でディレクトリ１つ分を削除できる
 zstyle ':zle:*' word-chars " /=;@:{},|"
 zstyle ':zle:*' word-style unspecified
- 
+
 ########################################
 # 補完
 # 補完機能を有効にする
 autoload -Uz compinit
 compinit -u
- 
+
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
- 
+
 # ../ の後は今いるディレクトリを補完しない
 zstyle ':completion:*' ignore-parents parent pwd ..
- 
+
 # sudo の後ろでコマンド名を補完する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
- 
+
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
- 
- 
+
+
 ########################################
 # vcs_info
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
- 
+
 zstyle ':vcs_info:*' formats '%F{green}(%s)-[%b]%f'
 zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
- 
+
 function _update_vcs_info_msg() {
     LANG=en_US.UTF-8 vcs_info
     RPROMPT="${vcs_info_msg_0_}"
@@ -75,7 +75,7 @@ add-zsh-hook precmd _update_vcs_info_msg
 # オプション
 # 日本語ファイル名を表示可能にする
 setopt print_eight_bit
- 
+
 # beep を無効にする
 setopt no_beep
  
@@ -117,9 +117,8 @@ bindkey '^R' history-incremental-pattern-search-backward
 ########################################
 # エイリアス
  
-alias la='ls -a'
+alias la='ls -la'
 alias ll='ls -l'
- 
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -128,11 +127,11 @@ alias mkdir='mkdir -p'
  
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
- 
+
 # グローバルエイリアス
 alias -g L='| less'
 alias -g G='| grep'
- 
+
 # C で標準出力をクリップボードにコピーする
 # mollifier delta blog : http://mollifier.hatenablog.com/entry/20100317/p1
 if which pbcopy >/dev/null 2>&1 ; then
@@ -145,11 +144,12 @@ elif which putclip >/dev/null 2>&1 ; then
     # Cygwin
     alias -g C='| putclip'
 fi
- 
- 
- 
+
+
+
 ########################################
 # OS 別の設定
+########################################
 case ${OSTYPE} in
     darwin*)
         #Mac用の設定
@@ -174,32 +174,6 @@ esac
 
 eval SSH_AUTH_SOCK=/var/folders/2w/56d_fszd75d0j36hymfql8dm0000gn/T//ssh-TrCPcsdJ3Ybx/agent.63238; export SSH_AUTH_SOCK;
 SSH_AGENT_PID=63239; export SSH_AGENT_PID;
-
-function proxyon() {
-  export http_proxy="http://ohs30484:yasu0293@proxy02.osaka.hal.ac.jp:8080/"
-  export https_proxy=$http_proxy
-  export all_proxy=$http_proxy
-  export VAGRANT_HTTP_PROXY=$http_proxy
-  export VAGRANT_HTTPS_PROXY=$http_proxy
-  export VAGRANT_FTP_PROXY=$http_proxy
-  export VAGRANT_NO_PROXY=$http_proxy
-  git config --global http.proxy $http_proxy
-  git config --global https.proxy $http_proxy
-  echo "proxy on"
-}
-
-function proxyoff() {
-  export http_proxy=""
-  export https_proxy=""
-  export all_proxy=""
-  export VAGRANT_HTTP_PROXY=""
-  export VAGRANT_HTTPS_PROXY=""
-  export VAGRANT_FTP_PROXY=""
-  export VAGRANT_NO_PROXY=""
-  git config --global http.proxy ""
-  git config --global https.proxy ""
-  echo "proxy off"
-}
 
 # 色設定
 autoload -U colors; colors
