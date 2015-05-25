@@ -93,7 +93,7 @@ NeoBundleLazy 'taka84u9/vim-ref-ri', {
 
 " Git系
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
+" NeoBundle 'airblade/vim-gitgutter'
 
 " シンタックスチェック
 NeoBundle 'scrooloose/syntastic'

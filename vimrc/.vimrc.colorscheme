@@ -12,5 +12,5 @@ if stridx($TERM, "xterm-256color") >= 0
   " colorscheme solarized
 else
   colorscheme desert
-  set t_Co=8
+  set t_Co=16
 endif
