@@ -160,8 +160,8 @@ case ${OSTYPE} in
           export PATH=$rbenv:${PATH//$rbenv:/}
         type rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
         export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-        alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-        alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+        # alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+        # alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
         alias sudo='sudo -E'
         ;;
     linux*)

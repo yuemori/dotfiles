@@ -12,8 +12,8 @@ set split-view-height = 80%
 bind generic G none
 
 # 画面の上下移動をvim風に
-bind generic ^B move-page-up
-bind generic ^F move-page-down
+bind generic <Ctrl-B> move-page-up
+bind generic <Ctrl-F> move-page-down
 
 # 画面の末尾・先頭に移動をvim風に
 bind generic g move-first-line
