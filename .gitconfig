@@ -9,7 +9,7 @@
 	co = commit -a
 	ad = add -u
 	br = branch
-	tree = log --graph --decorate --oneline
+	tree = log --graph --decorate --oneline -n 10
 	lp = log -p
 	ls = log --stat
   log-all = log --graph --all --color --pretty=format:'%x09%h %cn%x09%s %Cred%d%Creset'
@@ -17,3 +17,12 @@
   current-branch = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
   push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'"
 	ds = diff --staged
+	dc = diff --cached
+	cp = cherry-pick
+	dh = diff HEAD
+[credential]
+	helper = osxkeychain
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff2
