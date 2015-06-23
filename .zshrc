@@ -232,3 +232,21 @@ source '/usr/local/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables bash completion for gcloud.
 # source '/usr/local/google-cloud-sdk/completion.zsh.inc'
+########################################
+# pecoでヒストリ補完
+########################################
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
