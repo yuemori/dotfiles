@@ -6,7 +6,7 @@
 ########################################
 # 環境変数
 export LANG=ja_JP.UTF-8
-export TERM=xterm-color
+export TERM=xterm-256color
 export PATH="/usr/local/bin:$PATH"
 
 # 色を使用出来るようにする
@@ -131,6 +131,8 @@ alias sudo='sudo '
 # グローバルエイリアス
 alias -g L='| less'
 alias -g G='| grep'
+alias -g H='| head'
+alias -g T='| tail'
 
 # C で標準出力をクリップボードにコピーする
 # mollifier delta blog : http://mollifier.hatenablog.com/entry/20100317/p1
@@ -145,7 +147,30 @@ elif which putclip >/dev/null 2>&1 ; then
     alias -g C='| putclip'
 fi
 
+########################################
+# cdr
+########################################
+# cdr,  add-zsh-hook を有効にする
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
 
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-default true
+zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
+zstyle ':chpwd:*' recent-dirs-pushd true
+
+# pecoでcdrを開く
+function peco-cdr() {
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-cdr
+bindkey '^@' peco-cdr
 
 ########################################
 # OS 別の設定
