@@ -53,7 +53,6 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'surround.vim'
-" NeoBundle 'endwise.vim'
 NeoBundle 'cohama/vim-smartinput-endwise'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'AndrewRadev/switch.vim'
@@ -93,7 +92,9 @@ NeoBundleLazy 'taka84u9/vim-ref-ri', {
 
 " Git系
 NeoBundle 'tpope/vim-fugitive'
-" NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'cohama/agit.vim'
+" NeoBundle 'gregsexton/gitv'
 
 " シンタックスチェック
 NeoBundle 'scrooloose/syntastic'
