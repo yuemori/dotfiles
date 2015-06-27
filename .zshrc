@@ -8,6 +8,7 @@
 export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
 export PATH="/usr/local/bin:$PATH"
+export GOPATH=$HOME
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -146,6 +147,15 @@ elif which putclip >/dev/null 2>&1 ; then
     # Cygwin
     alias -g C='| putclip'
 fi
+
+########################################
+# agvim
+########################################
+function agvim () {
+  vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+}
+zle -N agvim
+alias v='agvim'
 
 ########################################
 # cdr
@@ -315,3 +325,17 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+########################################
+# pecoでghq
+########################################
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^g' peco-src

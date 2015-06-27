@@ -27,3 +27,5 @@
 	editor = vim
 [merge]
 	tool = vimdiff2
+[ghq]
+	root = /Users/yuemori/ghq
