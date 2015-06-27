@@ -38,6 +38,8 @@ nnoremap <Space>uu :<C-u>Unite file_mru buffer<CR>
 nnoremap <Space>ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 " grep検索結果の再呼び出し
 nnoremap <Space>ur :<C-u>UniteResume search-buffer<CR>
+" grep検索結果の再呼び出し
+nnoremap <Space>ul :<C-u>Unite line<CR>
 
 " unite grepにagを使う
 if executable('ag')
