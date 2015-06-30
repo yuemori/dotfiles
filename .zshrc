@@ -324,18 +324,16 @@ function peco-select-history() {
     zle clear-screen
 }
 zle -N peco-select-history
-bindkey '^r' peco-select-history
 
 ########################################
-# pecoでghq
+# cool-peco
 ########################################
-function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
-}
-zle -N peco-src
-bindkey '^g' peco-src
+source "$HOME/ghq/github.com/ryoppy/cool-peco/cool-peco"
+zle -N cool-peco-history
+bindkey '^r' cool-peco-history
+zle -N cool-peco-filename-search
+bindkey '^s' cool-peco-filename-search
+zle -N cool-peco-git-log
+bindkey '^l' cool-peco-git-log
+zle -N cool-peco-git-checkout
+bindkey '^o' cool-peco-git-checkout
