@@ -6,7 +6,7 @@
 [alias]
 	ch = checkout
 	st = status
-	co = commit -a
+	co = commit
 	ad = add -u
 	br = branch
 	tree = log --graph --decorate --oneline -n 10
@@ -21,11 +21,25 @@
 	cp = cherry-pick
 	dh = diff HEAD
 	amend = commit --amend
+	s = status
+	a = add
+	am = commit --amend
+	c = commit
+	b = branch
+	t = log --graph --decorate --oneline -n 10
+	l = log
+	r = rebase
+	rc = rebase --continue
+	rs = rebase --skip
+	mt = mergetool
+
 [credential]
 	helper = osxkeychain
 [core]
 	editor = vim
 [merge]
-	tool = vimdiff2
+	tool = vimdiff
 [ghq]
 	root = /Users/yuemori/ghq
+[mergetool]
+	keepBackup = false
