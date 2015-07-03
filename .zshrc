@@ -338,4 +338,20 @@ bindkey '^l' cool-peco-git-log
 zle -N cool-peco-git-checkout
 bindkey '^o' cool-peco-git-checkout
 zle -N cool-peco-ghq
-bindkey '^g' cool-peco-ghq
+# bindkey '^g' cool-peco-ghq
+
+function peco_select_from_git_status(){
+    git status --porcelain | \
+    peco | \
+    awk -F ' ' '{print $NF}' | \
+    tr '\n' ' '
+}
+
+function peco_insert_selected_git_files(){
+    LBUFFER+=$(peco_select_from_git_status)
+    CURSOR=$#LBUFFER
+    zle reset-prompt
+}
+
+zle -N peco_insert_selected_git_files
+bindkey "^g" peco_insert_selected_git_files

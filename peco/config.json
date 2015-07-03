@@ -1,0 +1,10 @@
+{
+  "Prompt": "(?'_')<",
+  "Keymap": {
+    "C-s": "peco.ToggleSelectionAndSelectNext",
+    "C-r": "peco.ToggleRangeMode"
+  },
+  "Skype": {
+    "Query": ["green", "bold"]
+  }
+}
