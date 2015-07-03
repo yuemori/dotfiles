@@ -337,3 +337,5 @@ zle -N cool-peco-git-log
 bindkey '^l' cool-peco-git-log
 zle -N cool-peco-git-checkout
 bindkey '^o' cool-peco-git-checkout
+zle -N cool-peco-ghq
+bindkey '^g' cool-peco-ghq
