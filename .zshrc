@@ -334,12 +334,13 @@ bindkey '^r' cool-peco-history
 zle -N cool-peco-filename-search
 bindkey '^s' cool-peco-filename-search
 zle -N cool-peco-git-log
-bindkey '^l' cool-peco-git-log
+bindkey '^g^l' cool-peco-git-log
 zle -N cool-peco-git-checkout
 bindkey '^o' cool-peco-git-checkout
 zle -N cool-peco-ghq
-# bindkey '^g' cool-peco-ghq
+bindkey '^g^h' cool-peco-ghq
 
+# git status peco
 function peco_select_from_git_status(){
     git status --porcelain | \
     peco | \
@@ -354,4 +355,4 @@ function peco_insert_selected_git_files(){
 }
 
 zle -N peco_insert_selected_git_files
-bindkey "^g" peco_insert_selected_git_files
+bindkey "^g^s" peco_insert_selected_git_files
