@@ -1,0 +1,16 @@
+*~
+*.swp
+*.bak
+*.old
+tmp
+old
+.vim/bundle
+.vim/dict
+.git
+.svn
+zsh-completions
+lib
+libs
+node_modules
+*.egg
+*.egg-info

@@ -149,13 +149,9 @@ elif which putclip >/dev/null 2>&1 ; then
 fi
 
 ########################################
-# agvim
+# ag
 ########################################
-function agvim () {
-  vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-}
-zle -N agvim
-alias v='agvim'
+alias ag ='ag -S --stats --pager "less-F"'
 
 ########################################
 # cdr
@@ -239,7 +235,7 @@ SPROMPT="%{$fg[red]%}%{$suggest%}(*'~'%)? < もしかして %B%r%b %{$fg[red]%}�
 autoload -U compinit compdef
 compinit
 # The next line updates PATH for the Google Cloud SDK.
-source '/usr/local/google-cloud-sdk/path.zsh.inc'
+# source '/usr/local/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables bash completion for gcloud.
 # source '/usr/local/google-cloud-sdk/completion.zsh.inc'
@@ -356,3 +352,4 @@ function peco_insert_selected_git_files(){
 
 zle -N peco_insert_selected_git_files
 bindkey "^g^s" peco_insert_selected_git_files
+
