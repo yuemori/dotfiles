@@ -328,13 +328,15 @@ source "$HOME/ghq/github.com/ryoppy/cool-peco/cool-peco"
 zle -N cool-peco-history
 bindkey '^r' cool-peco-history
 zle -N cool-peco-filename-search
-bindkey '^s' cool-peco-filename-search
+bindkey '^o' cool-peco-filename-search
 zle -N cool-peco-git-log
 bindkey '^g^l' cool-peco-git-log
 zle -N cool-peco-git-checkout
-bindkey '^o' cool-peco-git-checkout
+bindkey '^g^b' cool-peco-git-checkout
 zle -N cool-peco-ghq
 bindkey '^g^h' cool-peco-ghq
+zle -N cool-peco-tmux-session
+bindkey '^s' cool-peco-tmux-session
 
 # git status peco
 function peco_select_from_git_status(){
@@ -353,3 +355,6 @@ function peco_insert_selected_git_files(){
 zle -N peco_insert_selected_git_files
 bindkey "^g^s" peco_insert_selected_git_files
 
+function peco_password(){
+  cat $HOME/.password | peco | awk '{print $2}' | tr -d '\n' | pbcopy
+}
