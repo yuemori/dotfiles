@@ -37,11 +37,16 @@
 	helper = osxkeychain
 [core]
 	editor = vim
+	excludesfile = /Users/yuemori/.gitignore_global
 [merge]
 	tool = vimdiff
 [ghq]
 	root = /Users/yuemori/ghq
 [mergetool]
 	keepBackup = false
+[push]
+	default = upstream
+[rebase]
+	autosquash = true
 [init]
 	templatedir = .git_tmp
