@@ -3,6 +3,7 @@
 "-------------------------------------------------------------------------------
 " source ~/dotfiles/vimrc/plugin/.vimrc.plugin.cake
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.agit
+source ~/dotfiles/vimrc/plugin/.vimrc.plugin.auto-ctags
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.ctrlp
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-coffee-script
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.fugitive

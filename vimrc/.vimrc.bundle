@@ -160,6 +160,9 @@ NeoBundleLazy 'slim-template/vim-slim', { 'autoload': {
       \ 'filetypes': 'slim'
       \ }}
 
+" Ctags
+NeoBundle 'soramugi/auto-ctags.vim'
+
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck

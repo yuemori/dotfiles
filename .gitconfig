@@ -43,3 +43,5 @@
 	root = /Users/yuemori/ghq
 [mergetool]
 	keepBackup = false
+[init]
+	templatedir = .git_tmp
