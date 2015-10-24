@@ -9,6 +9,7 @@ export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
 export PATH="/usr/local/bin:$PATH"
 export GOPATH=$HOME
+export EDITOR=vim
 
 # 色を使用出来るようにする
 autoload -Uz colors
