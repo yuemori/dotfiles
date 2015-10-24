@@ -98,7 +98,7 @@ NeoBundle 'cohama/agit.vim'
 " NeoBundle 'gregsexton/gitv'
 
 " シンタックスチェック
-NeoBundle 'scrooloose/syntastic'
+" NeoBundle 'scrooloose/syntastic'
 NeoBundle 'jQuery'
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'pangloss/vim-javascript'

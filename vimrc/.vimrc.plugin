@@ -18,7 +18,7 @@ source ~/dotfiles/vimrc/plugin/.vimrc.plugin.smartchr
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.smartinput
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.simple-javascript-indenter
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.switch
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.syntastic
+" source ~/dotfiles/vimrc/plugin/.vimrc.plugin.syntastic
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.tcomment
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.transparency
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.unite
