@@ -65,6 +65,7 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'rking/ag.vim'
 
 " Unite系
 NeoBundleLazy 'Shougo/unite.vim', {
