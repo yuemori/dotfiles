@@ -49,4 +49,4 @@
 [rebase]
 	autosquash = true
 [init]
-	templatedir = .git_tmp
+	templatedir = ~/.git_tmp
