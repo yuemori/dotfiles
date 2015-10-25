@@ -26,3 +26,8 @@ endif
 if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
+
+augroup quickfixopen
+  autocmd!
+  autocmd QuickfixCmdPost make cw
+augroup END

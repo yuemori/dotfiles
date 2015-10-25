@@ -34,3 +34,4 @@ source ~/dotfiles/vimrc/.vimrc.filetype
 
 " プラグイン設定
 source ~/dotfiles/vimrc/.vimrc.plugin
+

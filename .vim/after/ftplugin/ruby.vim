@@ -1,10 +1,8 @@
-function! s:ExecuteMake()
-  if &filetype == 'ruby' && expand('%:t') !~? '^pry\d\{8}.\+\.rb'
-    silent make! -c "%" | redraw!
-  endif
-endfunction
+if &filetype != "ruby"
+  finish
+endif
 
 compiler ruby
-augroup rbsytaxcheck
-  autocmd! BufWritePost <buffer> call s:ExecuteMake()
+augroup rbsyntaxcheck
+  autocmd! BufWritePost <buffer> silent make! -c "%" | redraw!
 augroup END
