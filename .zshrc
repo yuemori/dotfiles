@@ -192,6 +192,7 @@ case ${OSTYPE} in
         [ -d "$rbenv" ] &&
           export PATH=$rbenv:${PATH//$rbenv:/}
         type rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
+        eval "$(direnv hook zsh)"
         # export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
         # alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
         # alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -237,7 +238,7 @@ SPROMPT="%{$fg[red]%}%{$suggest%}(*'~'%)? < もしかして %B%r%b %{$fg[red]%}�
 autoload -U compinit compdef
 compinit
 # The next line updates PATH for the Google Cloud SDK.
-# source '/usr/local/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables bash completion for gcloud.
 # source '/usr/local/google-cloud-sdk/completion.zsh.inc'
