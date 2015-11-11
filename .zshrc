@@ -125,9 +125,10 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
- 
+
+
 alias mkdir='mkdir -p'
- 
+
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
@@ -198,6 +199,15 @@ case ${OSTYPE} in
         # alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
         alias sudo='sudo -E'
         alias vi='/usr/local/bin/vim'
+
+        # git=hub
+        if which hub >/dev/null 2>&1 ; then
+          eval "$(hub alias -s)"
+        fi
+
+        fpath=(~/.zsh/mac-completions $fpath)
+        autoload -U compinit && compinit
+
         ;;
     linux*)
         #Linux用の設定
@@ -361,3 +371,6 @@ bindkey "^g^s" peco_insert_selected_git_files
 function peco_password(){
   cat $HOME/.password | peco | awk '{print $2}' | tr -d '\n' | pbcopy
 }
+
+# added by travis gem
+[ -f /Users/yuemori/.travis/travis.sh ] && source /Users/yuemori/.travis/travis.sh

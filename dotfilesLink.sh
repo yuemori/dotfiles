@@ -9,6 +9,7 @@ ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
 ln -sf ~/dotfiles/.tigrc ~/.tigrc
 
 # directories
-ln -sf ~/dotfiles/peco ~/
-ln -sf ~/dotfiles/git_tmp ~/.git_tmp
+ln -sf ~/dotfiles/.peco ~/
+ln -sf ~/dotfiles/.git_tmp ~/
 ln -sf ~/dotfiles/.vim ~/
+ln -sf ~/dotfiles/.zsh ~/
