@@ -207,6 +207,8 @@ case ${OSTYPE} in
 
         fpath=(~/.zsh/mac-completions $fpath)
         autoload -U compinit && compinit
+        eval $(thefuck --alias)
+        alias f='fuck'
 
         ;;
     linux*)
@@ -351,6 +353,13 @@ bindkey '^g^h' cool-peco-ghq
 zle -N cool-peco-tmux-session
 bindkey '^s' cool-peco-tmux-session
 
+function peco_open_file_with_editor() {
+    find . -name "*${1}*" | grep -v "/\." | peco | xargs sh -c 'vim "$0" < /dev/tty'
+    zle clear-screen
+}
+zle -N peco_open_file_with_editor
+bindkey '^v' peco_open_file_with_editor
+
 # git status peco
 function peco_select_from_git_status(){
     git status --porcelain | \
@@ -376,3 +385,74 @@ function peco_password(){
 [ -f /Users/yuemori/.travis/travis.sh ] && source /Users/yuemori/.travis/travis.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function fzf_chrome_history() {
+  local cols sep
+  cols=$(( COLUMNS / 3 ))
+  sep='{::}'
+
+  /bin/cp -f ~/Library/Application\ Support/Google/Chrome/Default/History /tmp/h
+
+  sqlite3 -separator $sep /tmp/h \
+    "select substr(title, 1, $cols), url
+     from urls order by last_visit_time desc" |
+  awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' |
+  fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs open
+}
+
+zle -N fzf_chrome_history
+bindkey "^q" fzf_chrome_history
+
+# fkill - kill process
+fkill() {
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    kill -${1:-9} $pid
+  fi
+}
+
+# fco - checkout git branch/tag
+fco() {
+  local tags branches target
+  tags=$(
+    git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
+  branches=$(
+    git branch --all | grep -v HEAD             |
+    sed "s/.* //"    | sed "s#remotes/[^/]*/##" |
+    sort -u          | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
+  target=$(
+    (echo "$tags"; echo "$branches") |
+    fzf-tmux -l30 -- --no-hscroll --ansi +m -d "\t" -n 2) || return
+  git checkout $(echo "$target" | awk '{print $2}')
+}
+
+# fcs - get git commit sha
+# example usage: git rebase -i `fcs`
+fcs() {
+  local commits commit
+  commits=$(git log --color=always --pretty=oneline --abbrev-commit --reverse) &&
+  commit=$(echo "$commits" | fzf --tac +s +m -e --ansi --reverse) &&
+  echo -n $(echo "$commit" | sed "s/ .*//")
+}
+
+# v - open files in ~/.viminfo
+v() {
+  local files
+  files=$(grep '^>' ~/.viminfo | cut -c3- |
+          while read line; do
+            [ -f "${line/\~/$HOME}" ] && echo "$line"
+          done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
+}
+
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fe() {
+  IFS='
+'
+  local declare files=($(fzf-tmux --query="$1" --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+  unset IFS
+}
