@@ -506,7 +506,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles</string>
+	<string>~/shelllog</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -533,9 +533,9 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>356 270 924 485 0 0 1280 777 </string>
+	<string>259 248 924 485 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>4 3 1276 774 0 0 1280 777 </string>
+	<string>4 423 1276 354 0 0 1280 777 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -690,7 +690,7 @@
 				<real>0.95683503150939941</real>
 			</dict>
 			<key>Automatically Log</key>
-			<false/>
+			<true/>
 			<key>BM Growl</key>
 			<true/>
 			<key>Background Color</key>
@@ -1077,7 +1077,7 @@
 				</dict>
 			</dict>
 			<key>Log Directory</key>
-			<string></string>
+			<string>/Users/yuemori/shelllog</string>
 			<key>Minimum Contrast</key>
 			<real>0.0</real>
 			<key>Mouse Reporting</key>
@@ -1264,10 +1264,12 @@
 			<string>/Users/yuemori</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveShownPromoWithId_4</key>
+	<true/>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>455008843.12992299</real>
+	<real>477591710.38718098</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>468726161.97265601</real>
+	<real>482720890.02842802</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1330,7 +1332,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-11-10T01:20:23Z</date>
+	<date>2016-04-19T00:52:48Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>

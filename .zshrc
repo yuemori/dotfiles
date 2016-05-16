@@ -10,6 +10,15 @@ export TERM=xterm-256color
 export PATH="/usr/local/bin:$PATH"
 export GOPATH=$HOME
 export EDITOR=vim
+set_bundle_gemfile () {
+  if [[ -f Gemfile.local ]]; then
+    export BUNDLE_GEMFILE=Gemfile.local
+  else
+    unset BUNDLE_GEMFILE
+  fi
+}
+
+preexec_functions+=(set_bundle_gemfile)
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -270,11 +279,12 @@ function tmux_automatically_attach_session()
         ! is_exists 'tmux' && return 1
 
         if is_tmux_runnning; then
-            echo "${fg_bold[red]} _____ __  __ _   ___  __ ${reset_color}"
-            echo "${fg_bold[red]}|_   _|  \/  | | | \ \/ / ${reset_color}"
-            echo "${fg_bold[red]}  | | | |\/| | | | |\  /  ${reset_color}"
-            echo "${fg_bold[red]}  | | | |  | | |_| |/  \  ${reset_color}"
-            echo "${fg_bold[red]}  |_| |_|  |_|\___//_/\_\ ${reset_color}"
+          cat ~/dotfiles/mandra.txt
+            # echo "${fg_bold[red]} _____ __  __ _   ___  __ ${reset_color}"
+            # echo "${fg_bold[red]}|_   _|  \/  | | | \ \/ / ${reset_color}"
+            # echo "${fg_bold[red]}  | | | |\/| | | | |\  /  ${reset_color}"
+            # echo "${fg_bold[red]}  | | | |  | | |_| |/  \  ${reset_color}"
+            # echo "${fg_bold[red]}  |_| |_|  |_|\___//_/\_\ ${reset_color}"
         elif is_screen_running; then
             echo "This is on screen."
         fi
@@ -383,6 +393,7 @@ function peco_password(){
 
 # added by travis gem
 [ -f /Users/yuemori/.travis/travis.sh ] && source /Users/yuemori/.travis/travis.sh
+<<<<<<< 9827acf32239779924313e6e3745acfeb5a544c5
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -456,3 +467,5 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
   unset IFS
 }
+
+export PATH="$HOME/.embulk/bin:$PATH"

@@ -25,3 +25,8 @@ samples
 
 # ruby
 vendor/bundle
+Gemfile.local
+Gemfile.local.lock
+
+# direnv
+.envrc

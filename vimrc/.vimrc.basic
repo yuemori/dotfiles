@@ -15,6 +15,7 @@ set hidden                        " 編集中でも他のファイルを開け�
 set confirm                       " 保存されていないファイルがあるときは終了前に確認
 set autoread                      " 外部でファイルに変更がある場合は読み直す
 set shellslash                    " セパレーターにスラッシュを利用可能に
+set backupskip=/tmp/*,/private/tmp/* " OSXでcrontabを使えるようにするため、backupを作らないようにする
 
 " ターミナルでマウスを有効にする
 if has('mouse')
