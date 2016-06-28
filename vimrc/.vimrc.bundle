@@ -98,7 +98,7 @@ NeoBundle 'cohama/agit.vim'
 " NeoBundle 'gregsexton/gitv'
 
 " シンタックスチェック
-" NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'jQuery'
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'pangloss/vim-javascript'
@@ -120,7 +120,7 @@ NeoBundle 'jpo/vim-railscasts-theme'
 " 表示変更
 NeoBundle 'itchyny/lightline.vim'
 " インデントの深さを視覚化する
-NeoBundle 'nathanaelkane/vim-indent-guides'
+" NeoBundle 'nathanaelkane/vim-indent-guides'
 " ログファイルを色づけしてくれる
 NeoBundle 'vim-scripts/AnsiEsc.vim'
 " 行末の半角スペースを可視化
@@ -149,9 +149,9 @@ NeoBundleLazy 'alpacatc/alpaca_tags', {
       \ }}
 
 " PHP用
-NeoBundle 'violetyk/cake.vim'
-NeoBundle 'evidens/vim-twig'
-NeoBundle 'shawncplus/phpcomplete.vim'
+" NeoBundle 'violetyk/cake.vim'
+" NeoBundle 'evidens/vim-twig'
+" NeoBundle 'shawncplus/phpcomplete.vim'
 
 " CoffeeScript
 NeoBundle 'kchmck/vim-coffee-script'
@@ -165,6 +165,17 @@ NeoBundleLazy 'slim-template/vim-slim', { 'autoload': {
 NeoBundle 'soramugi/auto-ctags.vim'
 
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" C#
+NeoBundleLazy 'OmniSharp/omnisharp-vim', {
+      \   'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] },
+      \   'build': {
+      \     'windows' : 'msbuild server/OmniSharp.sln',
+      \     'mac': 'xbuild server/OmniSharp.sln',
+      \     'unix': 'xbuild server/OmniSharp.sln',
+      \   },
+      \ }
+NeoBundle 'OrangeT/vim-csharp'
 
 call neobundle#end()
 filetype plugin indent on
