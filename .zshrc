@@ -24,6 +24,10 @@ preexec_functions+=(set_bundle_gemfile)
 autoload -Uz colors
 colors
 
+# zmvの有効化
+autoload -Uz zmv
+type zmv
+
 # emacs 風キーバインドにする
 bindkey -e
 
@@ -393,7 +397,6 @@ function peco_password(){
 
 # added by travis gem
 [ -f /Users/yuemori/.travis/travis.sh ] && source /Users/yuemori/.travis/travis.sh
-<<<<<<< 9827acf32239779924313e6e3745acfeb5a544c5
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -468,4 +471,84 @@ fe() {
   unset IFS
 }
 
-export PATH="$HOME/.embulk/bin:$PATH"
+# 補完関数の表示を過剰にする編
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
+zstyle ':completion:*:messages' format $YELLOW'%d'$DEFAULT
+zstyle ':completion:*:warnings' format $RED'No matches for:'$YELLOW' %d'$DEFAULT
+zstyle ':completion:*:descriptions' format $YELLOW'completing %B%d%b'$DEFAULT
+zstyle ':completion:*:corrections' format $YELLOW'%B%d '$RED'(errors: %e)%b'$DEFAULT
+zstyle ':completion:*:options' description 'yes'
+
+# 補完候補を ←↓↑→ でも選択出来るようにする
+zstyle ':completion:*:default' menu select=2
+
+#補完に関するオプション
+setopt auto_param_slash      # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
+setopt mark_dirs             # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
+setopt list_types            # 補完候補一覧でファイルの種別を識別マーク表示 (訳注:ls -F の記号)
+setopt auto_menu             # 補完キー連打で順に補完候補を自動で補完
+setopt auto_param_keys       # カッコの対応などを自動的に補完
+setopt interactive_comments  # コマンドラインでも # 以降をコメントと見なす
+setopt magic_equal_subst     # コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
+setopt complete_in_word      # 語の途中でもカーソル位置で補完
+setopt always_last_prompt    # カーソル位置は保持したままファイル名一覧を順次その場で表示
+setopt print_eight_bit       # 日本語ファイル名等8ビットを通す
+setopt extended_glob         # 拡張グロブで補完(~とか^とか。例えばless *.txt~memo.txt ならmemo.txt 以外の *.txt にマッチ)
+setopt globdots              # 明確なドットの指定なしで.から始まるファイルをマッチ
+setopt list_packed           # リストを詰めて表示
+
+#色の定義
+autoload -U colors ; colors
+local DEFAULT=%{$reset_color%}
+local RED=%{$fg[red]%}
+local GREEN=%{$fg[green]%}
+local YELLOW=%{$fg[yellow]%}
+local BLUE=%{$fg[blue]%}
+local PURPLE=%{$fg[purple]%}
+local CYAN=%{$fg[cyan]%}
+local WHITE=%{$fg[white]%}
+
+#LS_COLORSを設定しておく
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+#ファイル補完候補に色を付ける
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+alias -s rb='vi'
+
+if [ `uname` = "Darwin" ]; then
+  alias eog='open -a Preview'
+fi
+alias -s {png,jpg,bmp,PNG,JPG,BMP}=eog
+
+function extract() {
+  case $1 in
+    *.tar.gz|*.tgz) tar xzvf $1;;
+    *.tar.xz) tar Jxvf $1;;
+    *.zip) unzip $1;;
+    *.lzh) lha e $1;;
+    *.tar.bz2|*.tbz) tar xjvf $1;;
+    *.tar.Z) tar zxvf $1;;
+    *.gz) gzip -d $1;;
+    *.bz2) bzip2 -dc $1;;
+    *.Z) uncompress $1;;
+    *.tar) tar xvf $1;;
+    *.arj) unarj $1;;
+  esac
+}
+alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
+
+if [ `uname` = "Darwin" ]; then
+  alias google-chrome='open -a Google\ Chrome'
+fi
+alias chrome='google-chrome'
+
+alias -s html=chrome
+
+if [ -e /usr/libexec/java_home ];then
+  JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+  export PATH=$JAVA_HOME/bin:$PATH
+
+  [ -e "$HOME/.embulk/bin/embulk" ] && export PATH="$HOME/.embulk/bin:$PATH"
+  [ -e "$HOME/.digdag/bin/digdag" ] && export PATH="$HOME/.digdag/bin:$PATH"
+fi
