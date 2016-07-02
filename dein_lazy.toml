@@ -1,0 +1,30 @@
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'Shougo/neocomplcache'
+if = '!has("lua")'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neocomplete'
+if = 'has("lua")'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = 'has("nvim")'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomrc.vim'
+on_cmd = ['Unite', 'UniteWithBufferDir', 'UniteWithCurrentDir']
+
+[[plugins]]
+repo = 'basyura/unite-rails'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 

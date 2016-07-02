@@ -2,46 +2,50 @@
 " プラグイン設定 Plugin Settings
 "-------------------------------------------------------------------------------
 " source ~/dotfiles/vimrc/plugin/.vimrc.plugin.cake
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.agit
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.ag
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.auto-ctags
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.ctrlp
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-coffee-script
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.fugitive
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.fzf
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.gitgutter
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.html5
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.javascript-libraries-syntax
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.neosnippet
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.over
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.omnisharp
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.quickrun
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.smartchr
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.smartinput
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.simple-javascript-indenter
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.switch
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.syntastic
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.tcomment
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.transparency
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.unite
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-emmet
-" source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-indent-guides
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-lightline
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-rails
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vimfiler
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vimshell
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.yankround
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.zenkaku
-
-" Rubyのオムニ補完を設定
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_classes_inglobal = 1
-let g:rubycomplete_rails = 1
-set completeopt=menuone
-
-" 環境によってネオコンの読み込みを切り替え
-if neobundle#is_installed('neocomplete')
-  source ~/dotfiles/vimrc/plugin/.vimrc.plugin.neocomplete
-elseif neobundle#is_installed('neocomplcache')
-  source ~/dotfiles/vimrc/plugin/.vimrc.plugin.neocomplecache
-endif
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.agit
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.ag
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.auto-ctags
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.ctrlp
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-coffee-script
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.fugitive
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.fzf
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.gitgutter
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.html5
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.javascript-libraries-syntax
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.neosnippet
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.over
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.omnisharp
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.quickrun
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.smartchr
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.smartinput
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.simple-javascript-indenter
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.switch
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.syntastic
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.tcomment
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.transparency
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.unite
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-emmet
+"" source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-indent-guides
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-lightline
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-rails
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vimfiler
+"" source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vimshell
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.yankround
+"source ~/dotfiles/vimrc/plugin/.vimrc.plugin.zenkaku
+"
+"" Rubyのオムニ補完を設定
+"let g:rubycomplete_buffer_loading = 1
+"let g:rubycomplete_classes_inglobal = 1
+"let g:rubycomplete_rails = 1
+"set completeopt=menuone
+"
+"if has('nvim')
+"  let g:deoplete#enable_at_startup = 1
+"else
+"  " 環境によってネオコンの読み込みを切り替え
+"  if neobundle#is_installed('neocomplete')
+"    source ~/dotfiles/vimrc/plugin/.vimrc.plugin.neocomplete
+"  elseif neobundle#is_installed('neocomplcache')
+"    source ~/dotfiles/vimrc/plugin/.vimrc.plugin.neocomplecache
+"  endif
+"endif

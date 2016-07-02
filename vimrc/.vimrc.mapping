@@ -82,3 +82,10 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " 日時の入力補助
 " inoremap <expr> ,df strftime(
+
+" ターミナルモードで開く
+nnoremap <Space>T :<C-u>vsplit<CR><Esc><C-w>w:terminal<CR>
+
+if has('nvim')
+ tnoremap <Esc> <C-\><C-n>
+endif
