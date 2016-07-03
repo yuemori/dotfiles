@@ -1,15 +1,20 @@
 #! /bin/bash
 # files
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.gvimrc ~/.gvimrc
-ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/.gitignore ~/.gitignore
-ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
-ln -sf ~/dotfiles/.tigrc ~/.tigrc
+ln -vnsf ~/dotfiles/.vimrc ~/.vimrc
+ln -vnsf ~/dotfiles/.gvimrc ~/.gvimrc
+ln -vnsf ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -vnsf ~/dotfiles/.zshrc ~/.zshrc
+ln -vnsf ~/dotfiles/.gitignore ~/.gitignore
+ln -vnsf ~/dotfiles/.gitignore_global ~/.gitignore_global
+ln -vnsf ~/dotfiles/.tigrc ~/.tigrc
+ln -vnsf ~/dotfiles/dein.toml ~/.dein.toml
+ln -vnsf ~/dotfiles/dein_lazy.toml ~/.dein_lazy.toml
+mkdir -p ${HOME}/.config/nvim
+ln -snfv ${HOME}/.vim ${HOME}/.config/nvim/
+ln -snfv ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
 
 # directories
-ln -sf ~/dotfiles/.peco ~/
-ln -sf ~/dotfiles/.git_tmp ~/
-ln -sf ~/dotfiles/.vim ~/
-ln -sf ~/dotfiles/.zsh ~/
+ln -vnsf ~/dotfiles/.peco ~/
+ln -vnsf ~/dotfiles/.git_tmp ~/
+ln -vnsf ~/dotfiles/.vim ~/
+ln -vnsf ~/dotfiles/.zsh ~/
