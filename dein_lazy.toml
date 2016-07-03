@@ -1,0 +1,37 @@
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'Shougo/neocomplcache'
+if = '!has("lua")'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neocomplete'
+if = 'has("lua")'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = 'has("nvim")'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+on_cmd = ['Unite', 'UniteWithBufferDir', 'UniteWithCurrentDir']
+
+[[plugins]]
+repo = 'basyura/unite-rails'
+depends = 'unite.vim'
+on_ft = ['rb', 'ruby', 'erb']
+
+[[plugin]]
+repo = 'OrangeT/vim-csharp'
+on_ft = ['cs', 'csi', 'csx']
+
+[[plugins]]
+repo = 'OmniSharp/omnisharp-vim'
+on_ft = ['cs', 'csi', 'csx']
+build = 'xbuild server/OmniSharp.sln'
