@@ -24,6 +24,8 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 "" キーマッピング
 " バッファ一覧
 nnoremap <Space>ub :<C-u>Unite buffer<CR>
+" プロジェクトファイル
+nnoremap <Space>uo :<C-u>Unite file_rec/async:!<CR>
 " ファイル一覧
 nnoremap <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " レジスタ一覧

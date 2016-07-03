@@ -7,9 +7,9 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/share/git-core/contrib/diff-highlight:/usr/local/bin:$PATH"
 export GOPATH=$HOME
-export EDITOR=vim
+export EDITOR=nvim
 set_bundle_gemfile () {
   if [[ -f Gemfile.local ]]; then
     export BUNDLE_GEMFILE=Gemfile.local
@@ -192,7 +192,7 @@ function peco-cdr() {
     zle clear-screen
 }
 zle -N peco-cdr
-bindkey '^@' peco-cdr
+bindkey '^q' peco-cdr
 
 ########################################
 # OS 別の設定
@@ -211,7 +211,8 @@ case ${OSTYPE} in
         # alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
         # alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
         alias sudo='sudo -E'
-        alias vi='/usr/local/bin/vim'
+        # alias vi='/usr/local/bin/vim'
+        alias vi=nvim
 
         # git=hub
         if which hub >/dev/null 2>&1 ; then
@@ -414,8 +415,8 @@ function fzf_chrome_history() {
   fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs open
 }
 
-zle -N fzf_chrome_history
-bindkey "^q" fzf_chrome_history
+# zle -N fzf_chrome_history
+# bindkey "^q" fzf_chrome_history
 
 # fkill - kill process
 fkill() {
@@ -552,3 +553,5 @@ if [ -e /usr/libexec/java_home ];then
   [ -e "$HOME/.embulk/bin/embulk" ] && export PATH="$HOME/.embulk/bin:$PATH"
   [ -e "$HOME/.digdag/bin/digdag" ] && export PATH="$HOME/.digdag/bin:$PATH"
 fi
+
+export XDG_CONFIG_HOME=$HOME/.config
