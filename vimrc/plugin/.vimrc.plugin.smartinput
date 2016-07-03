@@ -37,28 +37,28 @@ call smartinput#define_rule({
             \    })
 
 " http://blog.supermomonga.com/articles/vim/share-cr-map-with-multiple-plugins.html
-if neobundle#tap('vim-smartinput')
-  call neobundle#config({
-        \   'autoload' : {
-        \     'insert' : 1
-        \   }
-        \ })
-
-  function! neobundle#tapped.hooks.on_post_source(bundle)
-    call smartinput_endwise#define_default_rules()
-  endfunction
-
-  call neobundle#untap()
-endif
-
-if neobundle#tap('vim-smartinput-endwise')
-  function! neobundle#tapped.hooks.on_post_source(bundle)
-    " neosnippet and neocomplete compatible
-    call smartinput#map_to_trigger('i', '<Plug>(vimrc_cr)', '<Enter>', '<Enter>')
-    imap <expr><CR> !pumvisible() ? "\<Plug>(vimrc_cr)" :
-          \ neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" :
-          \ neocomplete#close_popup()
-  endfunction
-  call neobundle#untap()
-endif
+" if neobundle#tap('vim-smartinput')
+"   call neobundle#config({
+"         \   'autoload' : {
+"         \     'insert' : 1
+"         \   }
+"         \ })
+"
+"   function! neobundle#tapped.hooks.on_post_source(bundle)
+"     call smartinput_endwise#define_default_rules()
+"   endfunction
+"
+"   call neobundle#untap()
+" endif
+"
+" if neobundle#tap('vim-smartinput-endwise')
+"   function! neobundle#tapped.hooks.on_post_source(bundle)
+"     " neosnippet and neocomplete compatible
+"     call smartinput#map_to_trigger('i', '<Plug>(vimrc_cr)', '<Enter>', '<Enter>')
+"     imap <expr><CR> !pumvisible() ? "\<Plug>(vimrc_cr)" :
+"           \ neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" :
+"           \ neocomplete#close_popup()
+"   endfunction
+"   call neobundle#untap()
+" endif
 " }}}
