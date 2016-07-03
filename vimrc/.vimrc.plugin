@@ -32,9 +32,9 @@ if has('nvim')
  let g:deoplete#enable_at_startup = 1
 else
  " 環境によってネオコンの読み込みを切り替え
- if neobundle#is_installed('neocomplete')
-   source ~/dotfiles/vimrc/plugin/.vimrc.plugin.neocomplete
- elseif neobundle#is_installed('neocomplcache')
-   source ~/dotfiles/vimrc/plugin/.vimrc.plugin.neocomplecache
- endif
+"  if neobundle#is_installed('neocomplete')
+"    source ~/dotfiles/vimrc/plugin/.vimrc.plugin.neocomplete
+"  elseif neobundle#is_installed('neocomplcache')
+"    source ~/dotfiles/vimrc/plugin/.vimrc.plugin.neocomplecache
+"  endif
 endif
