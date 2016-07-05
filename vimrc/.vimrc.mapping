@@ -87,5 +87,5 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 nnoremap <Space>T :<C-u>vsplit<CR><Esc><C-w>w:terminal<CR>
 
 if has('nvim')
- tnoremap <Esc> <C-\><C-n>
+  tnoremap <Esc> <C-\><C-n>
 endif

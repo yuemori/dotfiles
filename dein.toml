@@ -59,8 +59,11 @@ repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
 
+# [[plugins]]
+# repo = 'altercation/vim-colors-solarized'
+
 [[plugins]]
-repo = 'altercation/vim-colors-solarized'
+repo = 'frankier/neovim-colors-solarized-truecolor-only'
 
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
@@ -82,3 +85,16 @@ repo = 'jonathanfilip/vim-lucius'
 
 [[plugins]]
 repo = 'jpo/vim-railscasts-theme'
+
+[[plugins]]
+repo = 'chriskempson/vim-tomorrow-theme'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+
+[[plugins]]
+repo = 'kassio/neoterm'
+if = 'has("nvim")'
+
+[[plugins]]
+repo = 'scrooloose/syntastic'

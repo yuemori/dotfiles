@@ -35,3 +35,11 @@ on_ft = ['cs', 'csi', 'csx']
 repo = 'OmniSharp/omnisharp-vim'
 on_ft = ['cs', 'csi', 'csx']
 build = 'xbuild server/OmniSharp.sln'
+
+[[plugin]]
+repo = 'vim-ruby/vim-ruby'
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = ['ruby']

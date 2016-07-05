@@ -18,7 +18,9 @@ set backupskip=/tmp/*,/private/tmp/* " OSXでcrontabを使えるようにする�
 set synmaxcol=200                 " 1行が長くても全部解析しないようにする
 set ambiwidth=double
 
-if !has('nvim')
+if has('nvim')
+  set clipboard+=unnamedplus " クリップボードをvim以外と共有
+else
   " ターミナルでマウスを有効にする
   if has('mouse')
     set mouse=a
