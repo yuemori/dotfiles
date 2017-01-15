@@ -1,4 +1,11 @@
-#! /bin/bash
+#!/bin/bash
+
+set -eux
+
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap Homebrew/bundle
+brew bundle
+
 # files
 ln -vnsf ~/dotfiles/.vimrc ~/.vimrc
 ln -vnsf ~/dotfiles/.gvimrc ~/.gvimrc
