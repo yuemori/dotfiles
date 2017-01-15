@@ -202,10 +202,6 @@ case ${OSTYPE} in
         #Mac用の設定
         export CLICOLOR=1
         alias ls='ls -G -F'
-        rbenv=$HOME/.rbenv/bin
-        [ -d "$rbenv" ] &&
-          export PATH=$rbenv:${PATH//$rbenv:/}
-        type rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
         eval "$(direnv hook zsh)"
         # export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
         # alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -223,7 +219,7 @@ case ${OSTYPE} in
         autoload -U compinit && compinit
         eval $(thefuck --alias)
         alias f='fuck'
-
+        export PATH=$HOME/.nodebrew/current/bin:$PATH
         ;;
     linux*)
         #Linux用の設定
