@@ -221,7 +221,6 @@ case ${OSTYPE} in
         autoload -Uz cd-bookmark
         alias cdb='cd-bookmark'
         eval $(thefuck --alias)
-        alias f='fuck'
         export PATH=$HOME/.nodebrew/current/bin:$PATH
         GEMSRC_USE_GHQ=true
 
