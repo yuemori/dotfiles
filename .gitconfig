@@ -15,7 +15,6 @@
   log-all = log --graph --all --color --pretty=format:'%x09%h %cn%x09%s %Cred%d%Creset'
   log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
   current-branch = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
-  push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'"
 	ds = diff --staged
 	dc = diff --cached
 	cp = cherry-pick
@@ -31,7 +30,7 @@
 	r = rebase
 	rc = rebase --continue
 	rs = rebase --skip
-	mt = mergetool
+	mt = mergetool --tool=vimdiff
 	cleanup = "!git branch --merged | grep -v '*' | xargs git branch -d"
 
 [credential]

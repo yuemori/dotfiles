@@ -216,10 +216,15 @@ case ${OSTYPE} in
         fi
 
         fpath=(~/.zsh/mac-completions $fpath)
+        fpath=(~/.zsh/mac-completions/cd-bookmark $fpath)
         autoload -U compinit && compinit
+        autoload -Uz cd-bookmark
+        alias cdb='cd-bookmark'
         eval $(thefuck --alias)
         alias f='fuck'
         export PATH=$HOME/.nodebrew/current/bin:$PATH
+        GEMSRC_USE_GHQ=true
+
         ;;
     linux*)
         #Linux用の設定
