@@ -112,20 +112,18 @@ brew 'vim', args: ['with-lua']
 brew 'wget'
 brew 'zsh', args: ['without-etcdir']
 brew 'zsh-completions'
-brew 'drone/drone/drone'
 brew 'homebrew/dupes/rsync'
 brew 'homebrew/science/r'
 brew 'neovim/neovim/neovim'
 brew 'sanemat/font/ricty'
 cask 'alfred'
-cask 'bettertouchtool'
+cask 'atom'
 cask 'caffeine'
 cask 'genymotion'
 cask 'google-chrome'
 cask 'google-japanese-ime'
 cask 'gyazo'
 cask 'iterm2'
-cask 'libreoffice'
 cask 'skitch'
 cask 'skype'
 cask 'slack'
@@ -133,9 +131,5 @@ cask 'vagrant'
 cask 'virtualbox'
 cask 'kindle'
 cask 'docker-toolbox'
-mas 'LINE', id: 539883307
-mas 'Simple Antnotes', id: 846599902
-mas 'Growl', id: 467939042
-mas 'Xcode', id: 497799835
 mas 'Kobito', id: 896624060
-mas 'Slack', id: 803453959
+mas 'BetterSnapTool', id: 417375580
