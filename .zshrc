@@ -220,7 +220,7 @@ case ${OSTYPE} in
         autoload -U compinit && compinit
         autoload -Uz cd-bookmark
         alias cdb='cd-bookmark'
-        eval $(thefuck --alias)
+        eval "$(rbenv init -)"
         export PATH=$HOME/.nodebrew/current/bin:$PATH
         GEMSRC_USE_GHQ=true
 
