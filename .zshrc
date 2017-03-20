@@ -7,6 +7,11 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
+if which pyenv > /dev/null;
+then
+  export PYENV_ROOT=$HOME/.pyenv
+  eval "$(pyenv init -)"
+fi
 export PATH="/usr/local/share/git-core/contrib/diff-highlight:/usr/local/bin:$PATH"
 export GOPATH=$HOME
 export EDITOR=nvim
