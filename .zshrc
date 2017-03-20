@@ -228,7 +228,8 @@ case ${OSTYPE} in
         export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
         export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}
         export PATH=$HOME/.nodebrew/current/bin:$PATH
-        GEMSRC_USE_GHQ=true
+        export PATH="/usr/local/sbin:$PATH"
+        export GEMSRC_USE_GHQ=true
 
         ;;
     linux*)

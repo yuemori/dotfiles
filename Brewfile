@@ -25,14 +25,14 @@ brew 'gibo'
 brew 'gnu-getopt'
 brew 'coreutils'
 brew 'diffutils'
-brew 'findutils', args: ['--with-default-names']
-brew 'ed', args: ['--with-default-names']
-brew 'gnu-sed', args: ['--with-default-names']
-brew 'gnu-tar', args: ['--with-default-names']
-brew 'grep', args: ['--with-default-names']
-brew 'gzip'
-brew 'less'
-brew 'make'
+brew 'findutils', args: ['with-default-names']
+brew 'ed', args: ['with-default-names']
+brew 'gnu-sed', args: ['with-default-names']
+brew 'gnu-tar', args: ['with-default-names']
+brew 'grep', args: ['with-default-names']
+brew 'gzip', args: ['with-default-names']
+brew 'less', args: ['with-default-names']
+brew 'make', args: ['with-default-names']
 brew 'ncurses'
 brew 'openssh'
 brew 'rsync'
@@ -119,8 +119,8 @@ brew 'poppler'
 brew 'python3'
 brew 'postgresql'
 brew 'pyenv'
-brew 'ruby-build', args: ['HEAD']
-brew 'rbenv', args: ['HEAD']
+brew 'ruby-build'
+brew 'rbenv'
 brew 'rbenv-default-gems'
 brew 'reattach-to-user-namespace'
 brew 'redis'
