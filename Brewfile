@@ -30,8 +30,8 @@ brew 'ed', args: ['with-default-names']
 brew 'gnu-sed', args: ['with-default-names']
 brew 'gnu-tar', args: ['with-default-names']
 brew 'grep', args: ['with-default-names']
-brew 'gzip', args: ['with-default-names']
-brew 'less', args: ['with-default-names']
+brew 'gzip'
+brew 'less'
 brew 'make', args: ['with-default-names']
 brew 'ncurses'
 brew 'openssh'
