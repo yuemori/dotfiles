@@ -219,13 +219,14 @@ case ${OSTYPE} in
         if which hub >/dev/null 2>&1 ; then
           eval "$(hub alias -s)"
         fi
-
         fpath=(~/.zsh/mac-completions $fpath)
         fpath=(~/.zsh/mac-completions/cd-bookmark $fpath)
         autoload -U compinit && compinit
         autoload -Uz cd-bookmark
         alias cdb='cd-bookmark'
         eval "$(rbenv init -)"
+        export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
+        export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}
         export PATH=$HOME/.nodebrew/current/bin:$PATH
         GEMSRC_USE_GHQ=true
 

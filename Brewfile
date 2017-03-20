@@ -19,6 +19,18 @@ brew 'gettext'
 brew 'libffi'
 brew 'pcre'
 brew 'glib'
+brew 'gibo'
+brew 'gnu-getopt'
+brew 'coreutils'
+brew 'diffutils'
+brew 'findutils', args: ['--with-default-names']
+brew 'ed', args: ['--with-default-names']
+brew 'gnu-sed', args: ['--with-default-names']
+brew 'gnu-tar', args: ['--with-default-names']
+brew 'grep', args: ['--with-default-names']
+brew 'gzip'
+brew 'gawk'
+brew 'graphviz'
 brew 'libpng'
 brew 'freetype'
 brew 'fontconfig'
@@ -112,7 +124,7 @@ brew 'vim', args: ['with-lua']
 brew 'wget'
 brew 'zsh', args: ['without-etcdir']
 brew 'zsh-completions'
-brew 'homebrew/science/r'
+brew 'watch'
 brew 'neovim/neovim/neovim'
 brew 'sanemat/font/ricty'
 cask 'alfred'
