@@ -21,3 +21,4 @@ Session.vim
 .vim/.netrwhist
 .vimrc_sample
 .vagrant
+.envrc
