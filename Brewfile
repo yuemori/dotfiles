@@ -4,6 +4,7 @@ tap 'caskroom/versions'
 tap 'homebrew/bundle'
 tap 'homebrew/dupes'
 tap 'homebrew/core'
+tap 'homebrew/services'
 tap 'neovim/neovim'
 
 # android
@@ -26,6 +27,10 @@ cask 'docker-toolbox'
 
 # protobuf
 brew 'protobuf'
+
+# database
+brew 'mysql'
+brew 'postgresql'
 
 # gnu
 brew 'gnu-getopt'
@@ -115,6 +120,7 @@ brew 'gdbm'
 brew 'readline'
 brew 'ssh-copy-id'
 brew 'openssh'
+brew 'ack'
 
 # make
 brew 'cmake'

@@ -207,7 +207,7 @@ case ${OSTYPE} in
     darwin*)
         #Mac用の設定
         export CLICOLOR=1
-        alias ls='ls -G -F'
+        alias ls='ls -G -F --color=auto'
         eval "$(direnv hook zsh)"
         # export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
         # alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
