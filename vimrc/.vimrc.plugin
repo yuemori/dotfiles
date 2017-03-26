@@ -8,7 +8,6 @@ source ~/dotfiles/vimrc/plugin/.vimrc.plugin.ag
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.fugitive
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.fzf
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.gitgutter
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.neosnippet
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.omnisharp
 " source ~/dotfiles/vimrc/plugin/.vimrc.plugin.quickrun
 " source ~/dotfiles/vimrc/plugin/.vimrc.plugin.smartinput
