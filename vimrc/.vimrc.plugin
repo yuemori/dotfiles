@@ -12,7 +12,7 @@ source ~/dotfiles/vimrc/plugin/.vimrc.plugin.omnisharp
 " source ~/dotfiles/vimrc/plugin/.vimrc.plugin.quickrun
 " source ~/dotfiles/vimrc/plugin/.vimrc.plugin.smartinput
 " source ~/dotfiles/vimrc/plugin/.vimrc.plugin.switch
-source ~/dotfiles/vimrc/plugin/.vimrc.plugin.syntastic
+" source ~/dotfiles/vimrc/plugin/.vimrc.plugin.syntastic
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.tcomment
 " source ~/dotfiles/vimrc/plugin/.vimrc.plugin.transparency
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.unite

@@ -109,3 +109,11 @@ repo = 'scrooloose/syntastic'
 
 [[plugins]]
 repo = 'thinca/vim-ref'
+
+[[plugins]]
+repo = 'neomake/neomake'
+if = 'has("nvim")'
+hook_add = '''
+let g:neomake_open_list = 2
+autocmd! BufWritePost * Neomake
+'''
