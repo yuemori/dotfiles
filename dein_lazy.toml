@@ -27,6 +27,11 @@ repo = 'basyura/unite-rails'
 depends = 'unite.vim'
 on_ft = ['rb', 'ruby', 'erb']
 
+[[plugins]]
+repo = 'iyuuya/unite-rails-fat'
+depends = 'unite.vim'
+on_ft = ['rb', 'ruby', 'erb']
+
 [[plugin]]
 repo = 'OrangeT/vim-csharp'
 on_ft = ['cs', 'csi', 'csx']

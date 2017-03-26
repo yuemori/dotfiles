@@ -17,6 +17,7 @@ source ~/dotfiles/vimrc/plugin/.vimrc.plugin.syntastic
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.tcomment
 " source ~/dotfiles/vimrc/plugin/.vimrc.plugin.transparency
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.unite
+source ~/dotfiles/vimrc/plugin/.vimrc.plugin.unite-rails
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-lightline
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vim-rails
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.vimfiler
