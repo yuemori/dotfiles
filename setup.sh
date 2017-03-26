@@ -2,7 +2,11 @@
 
 set -eux
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+which brew
+if [ $# -eq 1 ];then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
 brew tap Homebrew/bundle
 sleep 5
 brew update
@@ -30,3 +34,9 @@ ln -vnsf ~/dotfiles/.zsh ~/
 
 cp ${HOME}/dotfiles/localhost.homebrew-upgrade.plist ~/Library/LaunchAgents/
 launchctl load ~/Library/LaunchAgents/localhost.homebrew-upgrade.plist
+
+# neovim
+pip install neovim
+gem install neovim
+
+brew doctor

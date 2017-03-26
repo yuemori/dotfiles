@@ -6,7 +6,9 @@
 ########################################
 # 環境変数
 export LANG=ja_JP.UTF-8
-export TERM=xterm-256color
+if [ -z "$TMUX" -a -z "$TERM" ];then
+  export TERM=xterm-256color
+fi
 if which pyenv > /dev/null;
 then
   export PYENV_ROOT=$HOME/.pyenv
@@ -213,8 +215,11 @@ case ${OSTYPE} in
         # alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
         # alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
         alias sudo='sudo -E'
+        # for nvim
         # alias vi='/usr/local/bin/vim'
         alias vi=nvim
+        infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+        tic $TERM.ti
 
         # git=hub
         if which hub >/dev/null 2>&1 ; then

@@ -12,7 +12,11 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'vim-scripts/L9'
 
 [[plugins]]
-repo = 'rhysd/clever-f.vim'
+repo = 'kassio/neoterm'
+if = 'has("nvim")'
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
 
 [[plugins]]
 repo = 'cohama/vim-smartinput-endwise'
@@ -21,16 +25,13 @@ repo = 'cohama/vim-smartinput-endwise'
 repo = 'kana/vim-smartinput'
 
 [[plugins]]
+repo = 'rhysd/clever-f.vim'
+
+[[plugins]]
 repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
-repo = 'AndrewRadev/switch.vim'
-
-[[plugins]]
 repo = 'rking/ag.vim'
-
-[[plugins]]
-repo = 'Shougo/vimfiler'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -56,45 +57,58 @@ depends = ['context_filetype.vim']
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
-[[plugins]]
-repo = 'ujihisa/unite-colorscheme'
+##########################
+## colorscheme
+##########################
 
 # [[plugins]]
 # repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
 repo = 'frankier/neovim-colors-solarized-truecolor-only'
+build = "cp ~/.cache/dein/repos/github.com/frankier/neovim-colors-solarized-truecolor-only/colors/*.vim ~/.vim/colors/"
 
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
+build = "cp ~/.cache/dein/repos/github.com/nanotech/jellybeans.vim/colors/*.vim ~/.vim/colors/"
 
 [[plugins]]
 repo = 'tomasr/molokai'
+build = "cp ~/.cache/dein/repos/github.com/tomasr/molokai/colors/*.vim ~/.vim/colors/"
 
 [[plugins]]
 repo = 'baskerville/bubblegum'
+build = "cp ~/.cache/dein/repos/github.com/baskerville/bubblegum/colors/*.vim ~/.vim/colors/"
 
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
+build = "cp ~/.cache/dein/repos/github.com/w0ng/vim-hybrid/colors/*.vim ~/.vim/colors/"
 
 [[plugins]]
 repo = 'vim-scripts/twilight'
+build = "cp ~/.cache/dein/repos/github.com/vim-scripts/twilight/colors/*.vim ~/.vim/colors/"
 
 [[plugins]]
 repo = 'jonathanfilip/vim-lucius'
+build = "cp ~/.cache/dein/repos/github.com/jonathanfilip/vim-lucius/colors/*.vim ~/.vim/colors/"
 
 [[plugins]]
 repo = 'jpo/vim-railscasts-theme'
+build = "cp ~/.cache/dein/repos/github.com/jpo/vim-railscasts-theme/colors/*.vim ~/.vim/colors/"
+
+[[plugins]]
+repo = 'carakan/new-railscasts-theme'
+build = "cp ~/.cache/dein/repos/github.com/carakan/new-railscasts-theme/colors/*.vim ~/.vim/colors/"
 
 [[plugins]]
 repo = 'chriskempson/vim-tomorrow-theme'
+build = "cp ~/.cache/dein/repos/github.com/chriskempson/vim-tomorrow-theme/colors/*.vim ~/.vim/colors/"
 
 [[plugins]]
-repo = 'tpope/vim-rails'
-
-[[plugins]]
-repo = 'kassio/neoterm'
-if = 'has("nvim")'
+repo = 'ujihisa/unite-colorscheme'
 
 [[plugins]]
 repo = 'scrooloose/syntastic'
+
+[[plugins]]
+repo = 'thinca/vim-ref'

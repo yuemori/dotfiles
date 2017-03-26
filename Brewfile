@@ -160,6 +160,7 @@ brew 'vim', args: ['with-lua', 'with-ruby']
 brew 'ruby'
 brew 'neovim/neovim/neovim'
 brew 'unibilium'
+brew 'lynx'
 
 # cask
 cask 'alfred'

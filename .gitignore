@@ -18,6 +18,7 @@ Session.vim
 .zshrc.local
 
 .vim/bundle/
+.vim/colors/
 .vim/.netrwhist
 .vimrc_sample
 .vagrant

@@ -36,7 +36,7 @@
 [credential]
 	helper = osxkeychain
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = /Users/yuemori/.gitignore_global
 	filemode = true
 [merge]
