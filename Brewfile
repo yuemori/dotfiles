@@ -178,6 +178,8 @@ cask 'vagrant'
 cask 'virtualbox'
 cask 'kindle'
 cask 'xquartz'
+cask 'hyperswitch'
+cask 'dash'
 
 # mas
 mas 'Kobito', id: 896624060
