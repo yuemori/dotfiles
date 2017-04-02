@@ -5,6 +5,7 @@ source ~/dotfiles/vimrc/plugin/.vimrc.plugin.agit
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.ag
 " source ~/dotfiles/vimrc/plugin/.vimrc.plugin.auto-ctags
 " source ~/dotfiles/vimrc/plugin/.vimrc.plugin.ctrlp
+source ~/dotfiles/vimrc/plugin/.vimrc.plugin.dash
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.fugitive
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.fzf
 source ~/dotfiles/vimrc/plugin/.vimrc.plugin.gitgutter

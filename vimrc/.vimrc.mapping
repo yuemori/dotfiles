@@ -44,10 +44,6 @@ inoremap <C-h> <BS>
 inoremap <C-d> <Del>
 " inoremap <C-k> <C-o>D
 
-" JとDで半ページ移動
-nnoremap J <C-D>
-nnoremap K <C-U>
-
 " 編集中のファイルのディレクトリに移動
 nnoremap ,cd :execute ":lcd" . expand("%:p:h")<CR>
 
