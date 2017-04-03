@@ -16,6 +16,7 @@ if = 'has("nvim")'
 repo = 'Shougo/vimfiler'
 
 [[plugins]]
+depends = 'kana/vim-smartinput'
 repo = 'cohama/vim-smartinput-endwise'
 
 [[plugins]]
@@ -54,6 +55,21 @@ depends = ['context_filetype.vim']
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
+hook_source = '''
+  let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft = ['rb', 'ruby', 'erb']
+on_i = 1
+
 ##########################
 ## colorscheme
 ##########################
@@ -67,7 +83,7 @@ build = "cp ~/.cache/dein/repos/github.com/frankier/neovim-colors-solarized-true
 
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
-build = "cp ~/.cache/dein/repos/github.com/nanotech/jellybeans.vim/colors/*.vim ~/.vim/colors/"
+build = "cp ~/.cache/dein/repos/github.com/nanotech/jellybeans/colors/*.vim ~/.vim/colors/"
 
 [[plugins]]
 repo = 'tomasr/molokai'
@@ -112,7 +128,6 @@ repo = 'thinca/vim-ref'
 
 [[plugins]]
 repo = 'neomake/neomake'
-if = 'has("nvim")'
 hook_add = '''
 let g:neomake_open_list = 2
 autocmd! BufWritePost * Neomake
