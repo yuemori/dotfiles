@@ -41,8 +41,15 @@ rbenv install 2.4.1
 rbenv global 2.4.1
 
 # neovim
-pip install neovim
+pyenv install 2.7.13
+pyenv install 3.6.1
+pyenv virtualenv 2.7.13 neovim
+pyenv virtualenv 3.6.1 neovim3
+pyenv shell neovim
+pip install --upgrade pip neovim
 gem install neovim
-gem install rsense
+pyenv shell neovim3
+pip3 install --upgrade pip neovim
+gem install neovim
 
 brew doctor
