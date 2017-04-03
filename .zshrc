@@ -14,6 +14,11 @@ then
   export PYENV_ROOT=$HOME/.pyenv
   eval "$(pyenv init -)"
 fi
+
+if which pyenv-virtualenv-init > /dev/null;then
+  eval "$(pyenv virtualenv-init -)"
+fi
+
 export PATH="/usr/local/share/git-core/contrib/diff-highlight:/usr/local/bin:$PATH"
 export GOPATH=$HOME
 export EDITOR=nvim
@@ -218,8 +223,8 @@ case ${OSTYPE} in
         # for nvim
         # alias vi='/usr/local/bin/vim'
         alias vi=nvim
-        infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
-        tic $TERM.ti
+        infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > /tmp/$TERM.ti
+        tic /tmp/$TERM.ti
 
         # git=hub
         if which hub >/dev/null 2>&1 ; then
@@ -276,11 +281,12 @@ SPROMPT="%{$fg[red]%}%{$suggest%}(*'~'%)? < もしかして %B%r%b %{$fg[red]%}�
 
 autoload -U compinit compdef
 compinit
-# The next line updates PATH for the Google Cloud SDK.
-source '/usr/local/google-cloud-sdk/path.zsh.inc'
+if [ -e "${HOME}/google-cloud-sdk/path.zsh.inc" ];then
+  source "${HOME}/google-cloud-sdk/path.zsh.inc"
 
-# The next line enables bash completion for gcloud.
-# source '/usr/local/google-cloud-sdk/completion.zsh.inc'
+  # source '/usr/local/google-cloud-sdk/completion.zsh.inc'
+fi
+
 
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
 function is_osx() { [[ $OSTYPE == darwin* ]]; }

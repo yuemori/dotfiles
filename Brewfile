@@ -15,6 +15,7 @@ brew 'sqlite'
 
 # pyenv
 brew 'pyenv'
+brew 'pyenv-virtualenv'
 
 # ansible
 brew 'ansible'
