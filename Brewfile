@@ -21,6 +21,7 @@ brew 'pyenv-virtualenv'
 brew 'ansible'
 brew 'openssl@1.1'
 brew 'python'
+brew 'python3'
 
 # docker
 brew 'ctop'
