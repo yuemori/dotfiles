@@ -35,8 +35,6 @@ ln -vnsf ~/dotfiles/.zsh ~/
 cp ${HOME}/dotfiles/localhost.homebrew-upgrade.plist ~/Library/LaunchAgents/
 launchctl load ~/Library/LaunchAgents/localhost.homebrew-upgrade.plist
 
-source ~/.zshrc
-
 rbenv install 2.4.1
 rbenv global 2.4.1
 
