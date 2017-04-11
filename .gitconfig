@@ -39,12 +39,15 @@
 	editor = nvim
 	excludesfile = /Users/yuemori/.gitignore_global
 	filemode = true
-[merge]
-	tool = vimdiff
 [ghq]
 	root = /Users/yuemori/ghq
+[merge]
+	tool = vimdiff
+  conflictstyle = diff3
 [mergetool]
-	keepBackup = false
+  prompt = true
+[mergetool "vimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [push]
 	default = upstream
 [rebase]
