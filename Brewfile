@@ -164,6 +164,9 @@ brew 'neovim/neovim/neovim'
 brew 'unibilium'
 brew 'lynx'
 
+# elixir
+brew 'elixir'
+
 # cask
 cask 'alfred'
 cask 'atom'
