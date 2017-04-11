@@ -43,10 +43,9 @@ pyenv install 2.7.13
 pyenv install 3.6.1
 pyenv virtualenv 2.7.13 neovim
 pyenv virtualenv 3.6.1 neovim3
-pyenv shell neovim
+pyenv activate neovim
 pip install --upgrade pip neovim
-gem install neovim
-pyenv shell neovim3
+pyenv activate neovim3
 pip3 install --upgrade pip neovim
 gem install neovim
 
