@@ -6,6 +6,8 @@ if has('nvim')
   set termguicolors
   " colorscheme railscasts
   colorscheme Tomorrow-Night-Bright
+  hi! Normal ctermbg=NONE guibg=NONE
+  hi! NonText ctermbg=NONE guibg=NONE
 else
   set t_Co=16
   colorscheme desert
