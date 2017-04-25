@@ -23,6 +23,9 @@ if which pyenv-virtualenv-init > /dev/null;then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH:/usr/local/bin"
+export GOPATH="$HOME/.go"
+export PATH="$PATH:$GOPATH/bin"
 export EDITOR=nvim
 set_bundle_gemfile () {
   if [[ -f Gemfile.local ]]; then
