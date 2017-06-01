@@ -5,6 +5,8 @@
 
 ########################################
 # 環境変数
+export PATH="/usr/local/share/git-core/contrib/diff-highlight:/usr/local/bin/:$PATH"
+export GOPATH=$HOME
 export LANG=ja_JP.UTF-8
 alias tmux='tmux -u'
 if [ -z "$TMUX" -a -z "$TERM" ];then
@@ -20,8 +22,6 @@ if which pyenv-virtualenv-init > /dev/null;then
   eval "$(pyenv virtualenv-init -)"
 fi
 
-export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
-export GOPATH=$HOME
 export EDITOR=nvim
 set_bundle_gemfile () {
   if [[ -f Gemfile.local ]]; then
