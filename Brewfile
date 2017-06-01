@@ -189,3 +189,4 @@ cask 'dash'
 # mas
 mas 'Kobito', id: 896624060
 mas 'BetterSnapTool', id: 417375580
+mas 'Slack', id: 803453959
