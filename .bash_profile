@@ -14,6 +14,15 @@ alias ps='ps --sort=start_time'
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
+if which pyenv > /dev/null;
+then
+  export PYENV_ROOT=$HOME/.pyenv
+  eval "$(pyenv init -)"
+fi
+
+if which pyenv-virtualenv-init > /dev/null;then
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 # User specific environment and startup programs
 
