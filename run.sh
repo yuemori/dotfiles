@@ -8,7 +8,9 @@ if [ ! $(which git) ];then
 fi
 
 mkdir -p ~/ghq/github.com/yuemori
-git clone https://github.com/yuemori/dotfiles.git ~/ghq/github.com/yuemori
+if [ -z "$(ls -A ~/ghq/github.com/yuemori)" ];then
+  git clone https://github.com/yuemori/dotfiles.git ~/ghq/github.com/yuemori
+fi
 
 echo "Start Dry run..."
 mitamae local --dry-run provision.rb
