@@ -8,8 +8,8 @@ if [ ! $(which git) ];then
 fi
 
 mkdir -p ~/ghq/github.com/yuemori
-if [ -z "$(ls -A ~/ghq/github.com/yuemori)" ];then
-  git clone https://github.com/yuemori/dotfiles.git ~/ghq/github.com/yuemori
+if [ -z "$(ls -A ~/ghq/github.com/yuemori/dotfiles)" ];then
+  git clone https://github.com/yuemori/dotfiles.git ~/ghq/github.com/yuemori/dotfiles
 fi
 
 echo "Start Dry run..."
