@@ -1,6 +1,7 @@
 "-------------------------------------------------------------------------------
 " ファイルタイプ FileType
 "-------------------------------------------------------------------------------
+filetype plugin on
 " HTML/CSS用設定
 au FileType html setlocal noexpandtab ts=2 sw=2 fenc=utf-8
 au FileType css setlocal expandtab ts=4 sw=2 fenc=utf-8
