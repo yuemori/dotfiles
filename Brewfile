@@ -8,7 +8,7 @@ tap 'homebrew/services'
 tap 'neovim/neovim'
 
 # android
-brew 'android-platform-tools'
+cask 'android-platform-tools'
 
 # sqlite
 brew 'sqlite'
@@ -25,7 +25,7 @@ brew 'python3'
 
 # docker
 brew 'ctop'
-cask 'docker-toolbox'
+cask 'docker'
 
 # protobuf
 brew 'protobuf'
@@ -189,4 +189,3 @@ cask 'dash'
 # mas
 mas 'Kobito', id: 896624060
 mas 'BetterSnapTool', id: 417375580
-mas 'Slack', id: 803453959
