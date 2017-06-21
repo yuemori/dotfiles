@@ -6,7 +6,8 @@
 ########################################
 # 環境変数
 export PATH="/usr/local/share/git-core/contrib/diff-highlight:/usr/local/bin/:$PATH"
-export GOPATH=$HOME
+export GOPATH="$HOME/.go"
+export PATH="$PATH:$GOPATH/bin"
 export LANG=ja_JP.UTF-8
 alias tmux='tmux -u'
 if [ -z "$TMUX" -a -z "$TERM" ];then
@@ -215,7 +216,7 @@ case ${OSTYPE} in
     darwin*)
         #Mac用の設定
         export CLICOLOR=1
-        alias ls='ls -G -F --color=auto'
+        #alias ls='ls -G -F --color=auto'
         eval "$(direnv hook zsh)"
         # export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
         # alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -246,7 +247,7 @@ case ${OSTYPE} in
         ;;
     linux*)
         #Linux用の設定
-        alias ls='ls -F --color=auto'
+        # alias ls='ls -F --color=auto'
         alias vi='vim'
         ;;
 esac
@@ -374,7 +375,9 @@ zle -N peco-select-history
 ########################################
 # cool-peco
 ########################################
-source "$HOME/ghq/github.com/ryoppy/cool-peco/cool-peco"
+fpath=($HOME/ghq/github.com/ryoppy/cool-peco/cool-peco $fpath)
+autoload -Uz cool-peco
+cool-peco
 zle -N cool-peco-history
 bindkey '^r' cool-peco-history
 zle -N cool-peco-filename-search
