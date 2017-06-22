@@ -13,6 +13,9 @@ repo = 'kassio/neoterm'
 if = 'has("nvim")'
 
 [[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
 repo = 'Shougo/vimfiler'
 
 [[plugins]]
