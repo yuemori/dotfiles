@@ -375,7 +375,7 @@ zle -N peco-select-history
 ########################################
 # cool-peco
 ########################################
-fpath=($HOME/ghq/github.com/ryoppy/cool-peco/cool-peco $fpath)
+fpath=($HOME/ghq/github.com/ryoppy/cool-peco $fpath)
 autoload -Uz cool-peco
 cool-peco
 zle -N cool-peco-history
