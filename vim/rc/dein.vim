@@ -14,8 +14,9 @@ execute 'set runtimepath^=' . s:dein_repo_dir
 
 call dein#begin(s:dein_dir)
 " 管理するプラグインを記述したファイル
-let s:toml = '~/.dein.toml'
-let s:lazy_toml = '~/.dein_lazy.toml'
+let s:rc_dir = expand('<sfile>:h')
+let s:toml = resolve(s:rc_dir . '/dein.toml')
+let s:lazy_toml = resolve(s:rc_dir . '/dein_lazy.toml')
 call dein#load_toml(s:toml, {'lazy': 0})
 call dein#load_toml(s:lazy_toml, {'lazy': 1})
 

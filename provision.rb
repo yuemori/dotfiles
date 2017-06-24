@@ -28,7 +28,7 @@ link "#{HOME}/Library/LaunchAgents/localhost.homebrew-upgrade.plist" do
 end
 
 # create symlinks
-%w(.agignore .bash_profile .bashrc .jshintrc .tmux.conf .zshrc .gitconfig .gitignore_global .tigrc .dein.toml .dein_lazy.toml).each do |item|
+%w(.agignore .bash_profile .bashrc .jshintrc .tmux.conf .zshrc .gitconfig .gitignore_global .tigrc).each do |item|
   link "#{HOME}/#{item}" do
     to "#{REPO}/#{item}"
     force true
