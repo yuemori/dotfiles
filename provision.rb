@@ -23,7 +23,7 @@ execute 'Creates LaunchAgents' do
 end
 
 link "#{HOME}/Library/LaunchAgents/localhost.homebrew-upgrade.plist" do
-  to "#{REPO}/localhost.homebrew-upgrade.plist"
+  to "#{REPO}/confs/localhost.homebrew-upgrade.plist"
   force true
 end
 

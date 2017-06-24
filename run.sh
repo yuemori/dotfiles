@@ -12,8 +12,5 @@ if [ -z "$(ls -A ~/ghq/github.com/yuemori/dotfiles)" ];then
   git clone https://github.com/yuemori/dotfiles.git ~/ghq/github.com/yuemori/dotfiles
 fi
 
-echo "Start Dry run..."
-mitamae local --dry-run provision.rb
-
 echo "Start provisioning..."
 mitamae local --log-level=debug provision.rb
