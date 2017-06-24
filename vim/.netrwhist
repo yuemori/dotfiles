@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/yuemori/Work/study1/slides'
+let g:netrw_dirhist_2='/Users/yuemori/Project/provisioning/.git'
+let g:netrw_dirhist_3='/Users/yuemori/Project/lfs-infra/roles/load_logs_to_bigquery/templates'
+let g:netrw_dirhist_4='/Users/yuemori/Project/lfs-infra/roles/importing_past_log'
+let g:netrw_dirhist_5='/Users/yuemori/Server/lfs-infra-test/lfs-infra/roles/td_agent_gmsv'
+let g:netrw_dirhist_6='/Users/yuemori/Project/provisioning/inventories'
+let g:netrw_dirhist_7='/Users/yuemori/Project/provisioning/roles/application/spec'
+let g:netrw_dirhist_8='/Users/yuemori/Project/provisioning/vendor/bundle/ruby/2.1.0/gems/specinfra-2.34.4/lib/specinfra/command'
+let g:netrw_dirhist_9='/Users/yuemori/Project/provisioning/vendor/bundle/ruby/2.1.0/gems/ansible_spec-0.2/lib/ansible_spec'

@@ -17,9 +17,6 @@ Session.vim
 *.elc
 .zshrc.local
 
-.vim/bundle/
 .vim/.netrwhist
 .vimrc_sample
-.vagrant
 .envrc
-.vim/init.vim

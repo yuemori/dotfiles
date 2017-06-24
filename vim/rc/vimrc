@@ -1,0 +1,40 @@
+"-------------------------------------------------------------------------------
+" .vimrc
+" user: wakaba260 (twitter:@wakaba260yen)
+"-------------------------------------------------------------------------------
+" 初期化
+let s:rc_dir = expand('<sfile>:h')
+
+function! s:source_rc(path, ...) abort
+  execute 'source' resolve(s:rc_dir . '/' . a:path)
+endfunction
+
+" dein.vim設定
+call s:source_rc('dein.vim')
+
+" 基本設定
+call s:source_rc('basic.vim')
+
+" 文字コード設定
+call s:source_rc('encoding.vim')
+
+" 表示設定
+call s:source_rc('appearance.vim')
+
+" カラースキーマ設定
+call s:source_rc('colorscheme.vim')
+
+" インデント設定
+call s:source_rc('indent.vim')
+
+" 検索設定
+call s:source_rc('search.vim')
+
+" キーマッピング設定
+call s:source_rc('mapping.vim')
+
+" ファイルタイプ設定
+call s:source_rc('filetype.vim')
+
+" プラグイン設定
+call s:source_rc('plugin.vim')

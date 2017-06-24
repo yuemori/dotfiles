@@ -1,0 +1,17 @@
+"------------------------------------
+" Unite-rails.vim
+"------------------------------------
+"{{{
+function! UniteRailsSetting()
+  nnoremap <Space>urv  :<C-U>Unite rails/view<CR>
+  nnoremap <Space>urm  :<C-U>Unite rails/model<CR>
+  nnoremap <Space>urc  :<C-U>Unite rails/controller<CR>
+  nnoremap <Space>urs    :<C-U>Unite rails/service<CR>
+  nnoremap <Space>urt    :<C-U>Unite rails/spec<CR>
+  nnoremap <Space>url    :<C-U>Unite rails/lib<CR>
+  nnoremap <Space>urg    ':e '.b:rails_root.'/Gemfile<CR>'
+endfunction
+aug MyAutoCmd
+  au User Rails call UniteRailsSetting()
+aug END
+"}}}
