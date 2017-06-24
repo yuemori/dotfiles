@@ -17,9 +17,9 @@ execute 'Run brew bundle' do
   not_if "brew bundle check --file=#{REPO}/Brewfile"
 end
 
-execute 'Creates nvim' do
+execute 'Creates LaunchAgents' do
   command "mkdir -p #{HOME}/Library/LaunchAgents"
-  not_if "test -e ~/.config/nvim"
+  not_if "test -e ~/Library/LaunchAgents"
 end
 
 link "#{HOME}/Library/LaunchAgents/localhost.homebrew-upgrade.plist" do
@@ -28,38 +28,44 @@ link "#{HOME}/Library/LaunchAgents/localhost.homebrew-upgrade.plist" do
 end
 
 # create symlinks
-%w(.agignore .bash_profile .bashrc .jshintrc .vimrc .tmux.conf .zshrc .gitconfig .gitignore_global .tigrc .dein.toml .dein_lazy.toml).each do |item|
+%w(.agignore .bash_profile .bashrc .jshintrc .tmux.conf .zshrc .gitconfig .gitignore_global .tigrc .dein.toml .dein_lazy.toml).each do |item|
   link "#{HOME}/#{item}" do
     to "#{REPO}/#{item}"
     force true
   end
 end
 
-execute 'Creates nvim' do
+execute 'Creates ~/.config' do
   command "mkdir -p #{HOME}/.config"
   not_if "test -e #{HOME}/.config/"
 end
 
 link "#{HOME}/.config/nvim" do
-  to "#{REPO}/.vim"
+  to "#{REPO}/vim"
   force true
 end
 
-link "#{HOME}/.config/nvim/init.vim" do
-  to "#{HOME}/.vimrc"
+link "#{HOME}/.vim" do
+  to "#{REPO}/vim"
+  force true
+end
+
+link "#{HOME}/.vimrc" do
+  to "#{REPO}/vim/vimrc"
   force true
 end
 
 execute 'Creates shell cache' do
-  command "mkdir -p #{HOME}/.config/nvim"
+  command "mkdir -p #{HOME}/.cache/shell"
   not_if "test -e #{HOME}/.cache/shell"
 end
 
-git '/Users/yuemori/ghq/github.com/ryoppy/cool-peco/cool-peco' do
-  repository 'https://github.com/ryoppy/cool-peco'
+execute 'Installs cool-peco' do
+  command 'ghq get ryoppy/cool-peco'
+  not_if 'test $(ghq list cool-peco)'
 end
 
-%w(.peco .git_tmp .vim .zsh).each do |item|
+%w(.peco .git_tmp .zsh).each do |item|
   link "#{HOME}/#{item}" do
     to "#{REPO}/#{item}"
     force true

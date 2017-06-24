@@ -16,4 +16,4 @@ echo "Start Dry run..."
 mitamae local --dry-run provision.rb
 
 echo "Start provisioning..."
-mitamae local provision.rb
+mitamae local --log-level=debug provision.rb
