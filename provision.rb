@@ -27,8 +27,16 @@ link "#{HOME}/Library/LaunchAgents/localhost.homebrew-upgrade.plist" do
   force true
 end
 
+# git
+%w(gitconfig gitignore_global git_tmp).each do |item|
+  link "#{HOME}/.#{item}" do
+    to "#{REPO}/git/#{item}"
+    force true
+  end
+end
+
 # create symlinks
-%w(.agignore .bash_profile .bashrc .jshintrc .tmux.conf .zshrc .gitconfig .gitignore_global .tigrc).each do |item|
+%w(.agignore .bash_profile .bashrc .jshintrc .tmux.conf .zshrc .tigrc).each do |item|
   link "#{HOME}/#{item}" do
     to "#{REPO}/#{item}"
     force true
@@ -65,7 +73,7 @@ execute 'Installs cool-peco' do
   not_if 'test $(ghq list cool-peco)'
 end
 
-%w(.peco .git_tmp .zsh).each do |item|
+%w(.peco .zsh).each do |item|
   link "#{HOME}/#{item}" do
     to "#{REPO}/#{item}"
     force true
