@@ -38,14 +38,14 @@ brew 'postgresql'
 brew 'gnu-getopt'
 brew 'coreutils'
 brew 'diffutils'
-brew 'findutils'
-brew 'ed'
-brew 'gnu-sed'
-brew 'gnu-tar'
-brew 'grep'
+brew 'findutils', args: ['with-default-names']
+brew 'ed', args: ['with-default-names']
+brew 'gnu-sed', args: ['with-default-names']
+brew 'gnu-tar', args: ['with-default-names']
+brew 'grep', args: ['with-default-names']
 brew 'gzip'
 brew 'less'
-brew 'make'
+brew 'make', args: ['with-default-names']
 brew 'ncurses'
 brew 'openssh'
 brew 'rsync'
