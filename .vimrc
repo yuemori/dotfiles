@@ -3,37 +3,37 @@
 " user: wakaba260 (twitter:@wakaba260yen)
 "-------------------------------------------------------------------------------
 " 初期化
-source ~/dotfiles/vimrc/.vimrc.init
+source ~/dotfiles/vimrc/vimrc.init
 
 " NeoBundle設定
 " source ~/dotfiles/vimrc/.vimrc.bundle
 
 " dein.vim設定
-source ~/dotfiles/vimrc/.vimrc.dein
+source ~/dotfiles/vimrc/vimrc.dein
 
 " 基本設定
-source ~/dotfiles/vimrc/.vimrc.basic
+source ~/dotfiles/vimrc/vimrc.basic
 
 " 文字コード設定
-source ~/dotfiles/vimrc/.vimrc.encoding
+source ~/dotfiles/vimrc/vimrc.encoding
 
 " 表示設定
-source ~/dotfiles/vimrc/.vimrc.appearance
+source ~/dotfiles/vimrc/vimrc.appearance
 
 " カラースキーマ設定
-source ~/dotfiles/vimrc/.vimrc.colorscheme
+source ~/dotfiles/vimrc/vimrc.colorscheme
 
 " インデント設定
-source ~/dotfiles/vimrc/.vimrc.indent
+source ~/dotfiles/vimrc/vimrc.indent
 
 " 検索設定
-source ~/dotfiles/vimrc/.vimrc.search
+source ~/dotfiles/vimrc/vimrc.search
 
 " キーマッピング設定
-source ~/dotfiles/vimrc/.vimrc.mapping
+source ~/dotfiles/vimrc/vimrc.mapping
 
 " ファイルタイプ設定
-source ~/dotfiles/vimrc/.vimrc.filetype
+source ~/dotfiles/vimrc/vimrc.filetype
 
 " プラグイン設定
-source ~/dotfiles/vimrc/.vimrc.plugin
+source ~/dotfiles/vimrc/vimrc.plugin
