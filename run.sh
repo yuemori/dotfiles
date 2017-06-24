@@ -1,16 +1,10 @@
+#!/bin/bash
+
 if [ ! $(which mitamae) ];then
   wget https://github.com/itamae-kitchen/mitamae/releases/download/v1.4.5/mitamae-x86_64-darwin -O /usr/bin/mitamae
   chmod +x /usr/bin/itamae
 fi
 
-if [ ! $(which git) ];then
-  brew install git
-fi
+wget https://raw.githubusercontent.com/yuemori/dotfiles/master/provision.rb -O /tmp/provision.rb
 
-mkdir -p ~/ghq/github.com/yuemori
-if [ -z "$(ls -A ~/ghq/github.com/yuemori/dotfiles)" ];then
-  git clone https://github.com/yuemori/dotfiles.git ~/ghq/github.com/yuemori/dotfiles
-fi
-
-echo "Start provisioning..."
-mitamae local --log-level=debug provision.rb
+mitamae local --log-level=debug /tmp/provision.rb
