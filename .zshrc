@@ -149,9 +149,9 @@ bindkey '^R' history-incremental-pattern-search-backward
 ########################################
 # エイリアス
  
-alias ls='ls --color'
-alias la='ls -la --color'
-alias ll='ls -l --color'
+# alias ls='ls --color'
+# alias la='ls -la --color'
+# alias ll='ls -l --color'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -219,7 +219,7 @@ case ${OSTYPE} in
     darwin*)
         #Mac用の設定
         export CLICOLOR=1
-        alias ls='ls -G -F --color=auto'
+        # alias ls='ls -G -F --color=auto'
         eval "$(direnv hook zsh)"
         # export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
         # alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -378,7 +378,7 @@ zle -N peco-select-history
 ########################################
 # cool-peco
 ########################################
-fpath=($HOME/ghq/github.com/ryoppy/cool-peco $fpath)
+fpath=($HOME/ghq/github.com/ryoppy/cool-peco/cool-peco $fpath)
 autoload -Uz cool-peco
 cool-peco
 zle -N cool-peco-history
