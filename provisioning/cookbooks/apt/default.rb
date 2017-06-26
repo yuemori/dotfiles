@@ -1,5 +1,5 @@
 execute 'apt-get update'
 
-%w[curl wget sudo make git software-properties-common].each do |item|
+%w[zip unzip tar curl wget sudo make git software-properties-common golang].each do |item|
   package item
 end
