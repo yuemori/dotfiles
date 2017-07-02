@@ -13,8 +13,8 @@ git "#{node[:home]}/dotfiles" do
   repository 'https://github.com/yuemori/dotfiles'
 end
 
+include_recipe '../cookbooks/symlinks'
 include_recipe '../cookbooks/pyenv'
 include_recipe '../cookbooks/rbenv'
-include_recipe '../cookbooks/symlinks'
 include_recipe '../cookbooks/vim'
 include_recipe '../cookbooks/zsh'
