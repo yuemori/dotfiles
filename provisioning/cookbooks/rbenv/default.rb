@@ -25,5 +25,5 @@ end
 end
 
 execute "bash -lc \"rbenv global 2.4.1\"" do
-  not_if "ruby version | grep 2.4.1"
+  not_if "bash -lc \"rbenv version | grep 2.4.1\""
 end
