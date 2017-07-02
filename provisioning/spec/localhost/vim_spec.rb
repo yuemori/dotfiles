@@ -36,6 +36,6 @@ describe command('bash -lc "pyenv versions"') do
   its(:stdout) { should match /neovim3/ }
 end
 
-describe command('rbenv shell 2.4.1 && gem search --installed neovim') do
+describe command('bash -lc "rbenv shell 2.4.1 && gem search --installed neovim"') do
   its(:exit_status) { should eq 0 }
 end

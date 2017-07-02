@@ -16,7 +16,7 @@ end
   end
 end
 
-describe command("which cool-peco") do
+describe command("zsh -lc 'source ~/.zshrc && which cool-peco'") do
   its(:exit_status) { should eq 0 }
 end
 
@@ -24,10 +24,10 @@ describe package('zsh') do
   it { should be_installed }
 end
 
-describe 'cat /etc/shells' do
-  its(:stdout) { should match /zsh/ }
+describe file('/etc/shells') do
+  its(:content) { should match /zsh/ }
 end
 
-describe "cat /etc/passwd | grep #{ENV['USER']}", if: os[:family] == 'ubuntu' do
+describe command("cat /etc/passwd | grep #{ENV['USER']}"), if: os[:family] == 'ubuntu' do
   its(:stdout) { should match /zsh/ }
 end
