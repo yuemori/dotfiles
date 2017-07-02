@@ -246,12 +246,16 @@ case ${OSTYPE} in
         export PATH=$HOME/.nodebrew/current/bin:$PATH
         export PATH="/usr/local/sbin:$PATH"
         export GEMSRC_USE_GHQ=true
-
         ;;
+
     linux*)
         #Linux用の設定
+        eval "$(direnv hook zsh)"
         alias ls='ls -F --color=auto'
-        alias vi='vim'
+        alias vi='nvim'
+        alias cdb='cd-bookmark'
+        export PATH="$HOME/.rbenv/bin:$PATH"
+        eval "$(rbenv init -)"
         ;;
 esac
 
@@ -378,7 +382,7 @@ zle -N peco-select-history
 ########################################
 # cool-peco
 ########################################
-fpath=($HOME/ghq/github.com/ryoppy/cool-peco/cool-peco $fpath)
+fpath=($HOME/ghq/github.com/ryoppy/cool-peco $fpath)
 autoload -Uz cool-peco
 cool-peco
 zle -N cool-peco-history
