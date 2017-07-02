@@ -1,4 +1,5 @@
 directory "#{node[:home]}/.cache/shell"
+
 link "#{node[:home]}/.zshrc" do
   to "#{node[:repo]}/.zshrc"
 end
