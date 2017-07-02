@@ -18,8 +18,10 @@ USER ubuntu
 WORKDIR /home/ubuntu
 COPY provisioning /provisioning
 
-# RUN echo "{ \"home\":\"/home/ubuntu\",\"current_user\":\"ubuntu\" }" > /tmp/node.json
-RUN echo "{ \"home\":\"/home/ubuntu\",\"current_user\":\"ubuntu\" }" > /tmp/node.json \
+ARG USER_NAME=wakaba260
+
+RUN echo "{ \"home\":\"/home/$USER_NAME\",\"current_user\":\"$USER_NAME\" }" > /tmp/node.json \
+    && cat /tmp/node.json \
     && sudo mitamae local --node-json /tmp/node.json /provisioning/roles/dotfile.rb
 
 CMD ["/bin/bash"]
