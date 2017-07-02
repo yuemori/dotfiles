@@ -12,15 +12,15 @@ alias ps='ps --sort=start_time'
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+	source ~/.bashrc
 fi
-if which pyenv > /dev/null;
-then
+
+if [ -z "$(which pyenv)" ];then
   export PATH="$HOME/.pyenv/bin:$PATH"
   eval "$(pyenv init -)"
 fi
 
-if which pyenv-virtualenv-init > /dev/null;then
+if [ -z "$(which pyenv-virtualenv-init)" ];then
   eval "$(pyenv virtualenv-init -)"
 fi
 
