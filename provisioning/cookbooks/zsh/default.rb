@@ -18,13 +18,17 @@ end
 
 case node[:platform]
 when 'ubuntu'
-  execute 'echo "/usr/local/bin/zsh" >> /etc/shells' do
+  package 'zsh' do
+    user 'root'
+  end
+
+  execute 'echo /usr/bin/zsh >> /etc/shells' do
     not_if 'test $(grep -E /usr/bin/zsh /etc/shells)'
     user 'root'
   end
 
   execute "chsh -s /usr/bin/zsh #{node[:current_user]}" do
-    not_if "test $(echo $SHELL | grep -E '\/usr\/bin\/zsh')"
+    not_if "test $(grep -E #{node[:current_user]} /etc/passwd | grep /usr/bin/zsh)"
     user 'root'
   end
 when 'darwin'
@@ -34,7 +38,6 @@ when 'darwin'
   end
 
   execute 'chsh -s /usr/local/bin/zsh' do
-    not_if 'test $(echo $SHELL | grep zsh)'
     user 'root'
   end
 end
