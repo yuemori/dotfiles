@@ -20,6 +20,6 @@ end
 
 %w[2.4.1].each do |version|
   execute "bash -lc \"rbenv install #{version}\"" do
-    not_if "bash -lc \"#{node[:rbenv]} versions | grep -e #{version}\""
+    not_if "bash -lc \"rbenv versions | grep -e #{version}\""
   end
 end
