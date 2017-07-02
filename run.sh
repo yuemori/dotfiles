@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -exu
 
 case ${OSTYPE} in
   darwin*)
@@ -10,6 +10,9 @@ case ${OSTYPE} in
     fi
 
     echo "{ \"home\":\"/Users/$USER\",\"current_user\":\"$USER\" }" > $HOME/node.json
+
+    svn export --force https://github.com/yuemori/dotfiles.git/trunk/provisioning /tmp/provisioning
+    mitamae local --log-level=debug /tmp/provisioning/roles/dotfile.rb -j $HOME/node.json
   ;;
 
   linux*)
@@ -20,13 +23,12 @@ case ${OSTYPE} in
 
     if [ -z "$(which svn)" ];then
       sudo apt-get update -y
-      sudo apt-get install subversion
+      sudo apt-get install -y subversion
     fi
 
     echo "{ \"home\":\"/home/$USER\",\"current_user\":\"$USER\" }" > $HOME/node.json
+
+    svn export --force https://github.com/yuemori/dotfiles.git/trunk/provisioning /tmp/provisioning
+    mitamae local --log-level=debug /tmp/provisioning/roles/dotfile.rb -j $HOME/node.json
   ;;
 esac
-
-
-svn export --force https://github.com/yuemori/dotfiles.git/trunk/provisioning /tmp/provisioning
-mitamae local --log-level=debug /tmp/provisioning/roles/dotfile.rb -j $HOME/node.json
