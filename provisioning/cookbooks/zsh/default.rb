@@ -38,17 +38,21 @@ when 'ubuntu'
 
   execute 'echo "/usr/local/bin/zsh" >> /etc/shells' do
     not_if 'test $(grep -E /usr/bin/zsh /etc/shells)'
+    user 'root'
   end
 
   execute "chsh -s /usr/bin/zsh #{node[:current_user]}" do
     not_if "test $(echo $SHELL | grep -E '\/usr\/bin\/zsh')"
+    user 'root'
   end
 when 'darwin'
-  execute 'sudo bash -lc \'echo "/usr/local/bin/zsh" >> /etc/shells\'' do
+  execute 'echo "/usr/local/bin/zsh" >> /etc/shells' do
     not_if 'test $(grep /usr/local/bin/zsh /etc/shells)'
+    user 'root'
   end
 
-  execute 'sudo chsh -s /usr/local/bin/zsh' do
+  execute 'chsh -s /usr/local/bin/zsh' do
     not_if 'test $(echo $SHELL | grep zsh)'
+    user 'root'
   end
 end

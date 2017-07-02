@@ -48,15 +48,15 @@ end
 include_recipe '../pyenv'
 
 %w[2 3].each do |version|
-  execute "#{node[:pyenv]} virtualenv python#{version} neovim#{version}" do
-    not_if "#{node[:pyenv]} versions | grep neovim#{version}"
+  execute "bash -lc \"pyenv virtualenv python#{version} neovim#{version}\"" do
+    not_if "bash -lc \"pyenv versions | grep neovim#{version}\""
   end
 
-  execute "bash -lc \"#{node[:pyenv]} activate neovim#{version} && pip install neovim\"" do
-    not_if "#{node[:pyenv]} activate neovim#{version} && pip list --format=columns | grep neovim"
+  execute "bash -lc \"pyenv activate neovim#{version} && pip install neovim\"" do
+    not_if "bash -lc \"pyenv activate neovim#{version} && pip list --format=columns | grep neovim\""
   end
 end
 
-execute "#{node[:rbenv]} shell 2.4.1 && gem install neovim" do
-  not_if "#{node[:rbenv]} shell 2.4.1 && gem search --installed neovim"
+execute "bash -lc \"rbenv shell 2.4.1 && gem install neovim\"" do
+  not_if "bash -lc \"rbenv shell 2.4.1 && gem search --installed neovim\""
 end
