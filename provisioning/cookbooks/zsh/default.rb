@@ -2,10 +2,12 @@ directory "#{node[:home]}/.cache/shell"
 
 link "#{node[:home]}/.zshrc" do
   to "#{node[:repo]}/.zshrc"
+  force true
 end
 
 link "#{node[:home]}/.zsh" do
   to "#{node[:repo]}/.zsh"
+  force true
 end
 
 git "#{node[:home]}/ghq/github.com/ryoppy/cool-peco" do
@@ -15,6 +17,7 @@ end
 
 link "#{node[:home]}/.peco" do
   to "#{node[:repo]}/.peco"
+  force true
 end
 
 case node[:platform]

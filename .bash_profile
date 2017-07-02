@@ -17,17 +17,16 @@ fi
 
 if [ -z "$(which pyenv)" ];then
   export PATH="$HOME/.pyenv/bin:$PATH"
-  eval "$(pyenv init -)"
 fi
 
-if [ -z "$(which pyenv-virtualenv-init)" ];then
-  eval "$(pyenv virtualenv-init -)"
-fi
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 if [ -z "$(which rbenv)" ];then
   export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
 fi
+
+eval "$(rbenv init -)"
 
 # User specific environment and startup programs
 
