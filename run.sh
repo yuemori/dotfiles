@@ -9,7 +9,7 @@ case ${OSTYPE} in
       chmod +x /usr/bin/itamae
     fi
 
-    echo "{ \"home\":\"/Users/$USER\",\"current_user\":\"$USER\" }" > /tmp/node.json
+    echo "{ \"home\":\"/Users/$USER\",\"current_user\":\"$USER\" }" > $HOME/node.json
   ;;
 
   linux*)
@@ -23,10 +23,10 @@ case ${OSTYPE} in
       sudo apt-get install subversion
     fi
 
-    echo "{ \"home\":\"/home/$USER\",\"current_user\":\"$USER\" }" > /tmp/node.json
+    echo "{ \"home\":\"/home/$USER\",\"current_user\":\"$USER\" }" > $HOME/node.json
   ;;
 esac
 
 
 svn export --force https://github.com/yuemori/dotfiles.git/trunk/provisioning /tmp/provisioning
-mitamae local --log-level=debug /tmp/provisioning/roles/dotfile.rb
+mitamae local --log-level=debug /tmp/provisioning/roles/dotfile.rb -j $HOME/node.json
