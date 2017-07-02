@@ -6,7 +6,7 @@ case ${OSTYPE} in
   darwin*)
     if [ ! $(which mitamae) ];then
       wget https://github.com/itamae-kitchen/mitamae/releases/download/v1.4.5/mitamae-x86_64-darwin -O /usr/bin/mitamae
-      chmod +x /usr/bin/itamae
+      chmod +x /usr/bin/mitamae
     fi
 
     echo "{ \"home\":\"/Users/$USER\",\"current_user\":\"$USER\" }" > $HOME/node.json
@@ -18,7 +18,7 @@ case ${OSTYPE} in
   linux*)
     if [ -z "$(which mitamae)" ];then
       sudo wget https://github.com/itamae-kitchen/mitamae/releases/download/v1.4.5/mitamae-x86_64-linux -O /usr/local/bin/mitamae
-      sudo chmod +x /usr/local/bin/itamae
+      sudo chmod +x /usr/local/bin/mitamae
     fi
 
     if [ -z "$(which svn)" ];then
