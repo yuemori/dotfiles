@@ -2,7 +2,7 @@ execute 'apt-get update' do
   user 'root'
 end
 
-%w[zip unzip tar curl wget sudo make git software-properties-common].each do |item|
+%w[zip unzip tar curl wget sudo make git software-properties-common direnv].each do |item|
   package item do
     user 'root'
   end
