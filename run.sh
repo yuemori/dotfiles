@@ -1,11 +1,15 @@
 #!/bin/bash
 
+set -ex
+
 case ${OSTYPE} in
   darwin*)
     if [ ! $(which mitamae) ];then
       wget https://github.com/itamae-kitchen/mitamae/releases/download/v1.4.5/mitamae-x86_64-darwin -O /usr/bin/mitamae
       chmod +x /usr/bin/itamae
     fi
+
+    echo "{ \"home\":\"/Users/$USER\",\"current_user\":\"$USER\" }" > /tmp/node.json
   ;;
 
   linux*)
@@ -16,8 +20,10 @@ case ${OSTYPE} in
 
     if [ -z "$(which svn)" ];then
       sudo apt-get update -y
-      sudo apt-get install svn
+      sudo apt-get install subversion
     fi
+
+    echo "{ \"home\":\"/home/$USER\",\"current_user\":\"$USER\" }" > /tmp/node.json
   ;;
 esac
 

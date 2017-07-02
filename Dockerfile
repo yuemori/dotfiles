@@ -4,6 +4,7 @@ RUN set -ex \
     && apt-get update -y \
     && apt-get install -y --no-install-recommends \
       sudo \
+      curl \
     && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd ubuntu \
@@ -16,10 +17,10 @@ RUN wget https://github.com/itamae-kitchen/mitamae/releases/download/v1.4.5/mita
 USER ubuntu
 
 WORKDIR /home/ubuntu
-COPY provisioning /provisioning
 
 ARG USER_NAME=wakaba260
 
+RUN curl https://raw.githubusercontent.com/yuemori/dotfiles/master/run.sh | bash -l
 RUN echo "{ \"home\":\"/home/$USER_NAME\",\"current_user\":\"$USER_NAME\" }" > /tmp/node.json \
     && cat /tmp/node.json \
     && sudo mitamae local --node-json /tmp/node.json /provisioning/roles/dotfile.rb
