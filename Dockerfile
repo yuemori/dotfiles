@@ -18,6 +18,7 @@ WORKDIR /home/$user
 USER $user
 ENV USER=$user
 
+COPY provisioning /tmp/provisioning
 COPY run.sh run.sh
 RUN ./run.sh
 

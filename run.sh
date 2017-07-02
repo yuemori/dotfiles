@@ -28,7 +28,9 @@ case ${OSTYPE} in
 
     echo "{ \"home\":\"/home/$USER\",\"current_user\":\"$USER\" }" > $HOME/node.json
 
-    svn export --force https://github.com/yuemori/dotfiles.git/trunk/provisioning /tmp/provisioning
+    sudo rm -rf /tmp/provisioning
+    sudo svn export --force https://github.com/yuemori/dotfiles.git/trunk/provisioning /tmp/provisioning
+    sudo chown -R $USER:$USER /tmp/provisioning
     mitamae local --log-level=debug /tmp/provisioning/roles/dotfile.rb -j $HOME/node.json
   ;;
 esac
