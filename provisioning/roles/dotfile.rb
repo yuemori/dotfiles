@@ -11,7 +11,6 @@ end
 
 git "#{node[:home]}/dotfiles" do
   repository 'https://github.com/yuemori/dotfiles'
-  user node[:current_user]
 end
 
 include_recipe '../cookbooks/pyenv'

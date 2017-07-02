@@ -1,22 +1,18 @@
 directory "#{node[:home]}/.cache/shell"
 link "#{node[:home]}/.zshrc" do
   to "#{node[:repo]}/.zshrc"
-  user node[:current_user]
 end
 
 link "#{node[:home]}/.zsh" do
   to "#{node[:repo]}/.zsh"
-  user node[:current_user]
 end
 
 git "#{node[:home]}/ghq/github.com/ryoppy/cool-peco" do
   repository 'https://github.com/ryoppy/cool-peco'
-  user node[:current_user]
   not_if 'test $(ghq list cool-peco)'
 end
 
 link "#{node[:home]}/.peco" do
-  user node[:current_user]
   to "#{node[:repo]}/.peco"
 end
 
