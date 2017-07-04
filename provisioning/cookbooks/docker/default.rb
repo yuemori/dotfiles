@@ -32,5 +32,5 @@ service 'docker' do
   action :start
 
   # see: http://tuhrig.de/how-to-know-you-are-inside-a-docker-container/
-  not_if 'cat awk -F/ \'$2 == "docker"\' /proc/self/cgroup | read'
+  only_if 'test -n "$(awk -F/ \'$2 == "docker"\' /proc/self/cgroup)"'
 end
