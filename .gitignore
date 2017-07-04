@@ -21,3 +21,4 @@ Session.vim
 .vim/bundle
 .vimrc_sample
 .envrc
+.zsh/mac-completions/cd-bookmark

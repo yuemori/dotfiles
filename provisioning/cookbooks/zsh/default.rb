@@ -15,6 +15,10 @@ git "#{node[:home]}/ghq/github.com/ryoppy/cool-peco" do
   not_if 'test $(ghq list cool-peco)'
 end
 
+git "#{node[:repo]}/.zsh/mac-completions/cd-bookmark" do
+  repository 'https://github.com/mollifier/cd-bookmark.git'
+end
+
 link "#{node[:home]}/.peco" do
   to "#{node[:repo]}/.peco"
   force true
