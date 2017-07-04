@@ -28,9 +28,9 @@ package 'docker-ce' do
   user 'root'
 end
 
-service 'docker' do
-  action :start
-
-  # see: http://tuhrig.de/how-to-know-you-are-inside-a-docker-container/
-  only_if 'test -n "$(awk -F/ \'$2 == "docker"\' /proc/self/cgroup)"'
-end
+# service 'docker' do
+#   action :start
+#
+#   # see: http://tuhrig.de/how-to-know-you-are-inside-a-docker-container/
+#   only_if 'test -n "$(awk -F/ \'$2 == "docker"\' /proc/self/cgroup)"'
+# end
