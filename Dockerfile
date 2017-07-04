@@ -15,11 +15,14 @@ RUN groupadd $user \
 
 WORKDIR /home/$user
 
+RUN wget https://github.com/itamae-kitchen/mitamae/releases/download/v1.4.5/mitamae-x86_64-linux -O /usr/bin/mitamae \
+    && chmod +x /usr/bin/mitamae
+
 USER $user
 ENV USER=$user
 
 COPY provisioning /tmp/provisioning
-COPY run.sh run.sh
-RUN ./run.sh
+RUN echo "{ \"home\":\"/home/$user\",\"current_user\":\"$user\" }" > /tmp/node.json \
+    && mitamae local /tmp/provisioning/roles/dotfile.rb -j /tmp/node.json
 
 CMD ["/bin/zsh"]
