@@ -14,7 +14,7 @@ execute 'apt-key fingerprint 0EBFCD88' do
   not_if 'test $(which docker)'
 end
 
-execute 'add-apt-repository \ "deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable"' do
+execute 'add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"' do
   user 'root'
   not_if 'test $(which docker)'
 end
