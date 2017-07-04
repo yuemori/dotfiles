@@ -185,6 +185,8 @@ cask 'kindle'
 cask 'xquartz'
 cask 'hyperswitch'
 cask 'dash'
+cask 'insomniax'
+cask 'marp'
 
 # mas
 mas 'Kobito', id: 896624060
