@@ -40,6 +40,10 @@ build = 'xbuild server/OmniSharp.sln'
 repo = 'vim-ruby/vim-ruby'
 on_ft = ['ruby', 'rb', 'erb']
 
+[[plugin]]
+repo = 'tpope/vim-bundler'
+on_ft = ['ruby', 'rb', 'erb']
+
 [[plugins]]
 repo = 'tpope/vim-rails'
 on_ft = ['ruby', 'rb', 'erb']
