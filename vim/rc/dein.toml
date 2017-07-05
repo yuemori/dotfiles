@@ -130,6 +130,12 @@ repo = 'scrooloose/syntastic'
 repo = 'thinca/vim-ref'
 
 [[plugins]]
+repo = 'kana/vim-smartchr'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+
+[[plugins]]
 repo = 'neomake/neomake'
 if = 'has("nvim")'
 hook_add = '''
