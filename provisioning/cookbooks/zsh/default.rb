@@ -30,10 +30,6 @@ when 'ubuntu'
     user 'root'
   end
 
-  package 'tmux' do
-    user 'root'
-  end
-
   execute 'echo /usr/bin/zsh >> /etc/shells' do
     not_if 'test $(grep -E /usr/bin/zsh /etc/shells)'
     user 'root'

@@ -20,8 +20,17 @@ execute 'add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/
 end
 
 execute 'apt-get update -y' do
-	user 'root'
+  user 'root'
   not_if 'test $(which docker)'
+end
+
+group 'docker' do
+  user 'root'
+end
+
+execute "usermod -aG docker #{node[:current_user]}" do
+  user 'root'
+  not_if "cat etc/group | grep docker | grep #{node[:current_user]}"
 end
 
 package 'docker-ce' do
