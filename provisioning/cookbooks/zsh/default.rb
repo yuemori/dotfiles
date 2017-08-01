@@ -10,7 +10,7 @@ link "#{node[:home]}/.zsh" do
   force true
 end
 
-git "#{node[:home]}/ghq/github.com/ryoppy/cool-peco" do
+git "#{node[:home]}/ghq/src/github.com/ryoppy/cool-peco" do
   repository 'https://github.com/ryoppy/cool-peco'
   not_if 'test $(ghq list cool-peco)'
 end

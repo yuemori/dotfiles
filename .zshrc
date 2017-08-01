@@ -6,7 +6,7 @@
 ########################################
 # 環境変数
 export PATH="/usr/local/share/git-core/contrib/diff-highlight:/usr/local/bin/:$PATH"
-export GOPATH="$HOME/.go"
+export GOPATH="$HOME/ghq"
 export PATH="$PATH:$GOPATH/bin"
 export LANG=ja_JP.UTF-8
 alias tmux='tmux -u'
@@ -23,9 +23,6 @@ if which pyenv-virtualenv-init > /dev/null;then
   eval "$(pyenv virtualenv-init -)"
 fi
 
-export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH:/usr/local/bin"
-export GOPATH="$HOME/.go"
-export PATH="$PATH:$GOPATH/bin"
 export EDITOR=nvim
 set_bundle_gemfile () {
   if [[ -f Gemfile.local ]]; then
@@ -382,7 +379,7 @@ zle -N peco-select-history
 ########################################
 # cool-peco
 ########################################
-fpath=($HOME/ghq/github.com/ryoppy/cool-peco $fpath)
+fpath=($HOME/ghq/src/github.com/ryoppy/cool-peco $fpath)
 autoload -Uz cool-peco
 cool-peco
 zle -N cool-peco-history
