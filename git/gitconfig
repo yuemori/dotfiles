@@ -40,7 +40,7 @@
 	excludesfile = /Users/yuemori/.gitignore_global
 	filemode = true
 [ghq]
-	root = /Users/yuemori/ghq
+	root = /Users/yuemori/ghq/src
 [merge]
 	tool = vimdiff
   conflictstyle = diff3
