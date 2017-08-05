@@ -40,3 +40,5 @@ au BufNewFile,BufRead,BufReadPre *.slim set filetype=slim
 " markdown用設定
 au BufNewFile,BufRead *.md set filetype=markdown
 
+au FileType cs setlocal expandtab ts=4 sts=4 sw=4 et
+au FileType csharp setlocal expandtab ts=4 sts=4 sw=4 et
