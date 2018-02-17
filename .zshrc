@@ -10,6 +10,7 @@ export GOPATH="$HOME/ghq"
 export PATH="$PATH:$GOPATH/bin"
 export LANG=ja_JP.UTF-8
 alias tmux='tmux -u'
+alias stern='noglob stern'
 if [ -z "$TMUX" -a -z "$TERM" ];then
   export TERM=xterm-256color
 fi
@@ -241,6 +242,7 @@ case ${OSTYPE} in
         export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
         export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}
         export PATH=$HOME/.nodebrew/current/bin:$PATH
+        export NODEBREW_ROOT=$HOME/.nodebrew
         export PATH="/usr/local/sbin:$PATH"
         export GEMSRC_USE_GHQ=true
         ;;
@@ -542,7 +544,7 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 #ファイル補完候補に色を付ける
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-alias -s rb='vi'
+alias -s {rb,yml,yaml,conf,md}='vi'
 
 if [ `uname` = "Darwin" ]; then
   alias eog='open -a Preview'
@@ -582,3 +584,6 @@ if [ -e /usr/libexec/java_home ];then
 fi
 
 export XDG_CONFIG_HOME=$HOME/.config
+
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
