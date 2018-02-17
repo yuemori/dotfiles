@@ -1,0 +1,1 @@
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
