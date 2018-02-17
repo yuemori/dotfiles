@@ -68,5 +68,4 @@
 	process = git-lfs filter-process
 	required = true
 [diff "sqlite3"]
-    binary = true
-    textconv = "echo .dump | sqlite3"
+	textconv = sqlite3 $1 .dump

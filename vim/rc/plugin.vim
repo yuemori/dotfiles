@@ -21,7 +21,9 @@ call s:source_plugin('unite-rails')
 call s:source_plugin('vim-lightline')
 call s:source_plugin('vim-rails')
 call s:source_plugin('vimfiler')
+call s:source_plugin('vim-indent-guides')
 call s:source_plugin('zenkaku')
+call s:source_plugin('vim-go')
 
 if has('nvim')
  let g:deoplete#enable_at_startup = 1

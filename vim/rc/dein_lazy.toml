@@ -18,6 +18,10 @@ depends = 'neomru.vim'
 on_cmd = ['Unite', 'UniteWithBufferDir', 'UniteWithCurrentDir']
 
 [[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+on_ft = ['yaml']
+
+[[plugins]]
 repo = 'basyura/unite-rails'
 depends = 'unite.vim'
 on_ft = ['rb', 'ruby', 'erb']
@@ -26,6 +30,10 @@ on_ft = ['rb', 'ruby', 'erb']
 repo = 'iyuuya/unite-rails-fat'
 depends = 'unite.vim'
 on_ft = ['rb', 'ruby', 'erb']
+
+[[plugins]]
+repo = 'mustache/vim-mustache-handlebars'
+on_ft = ['mustache']
 
 [[plugin]]
 repo = 'OrangeT/vim-csharp'

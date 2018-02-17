@@ -12,6 +12,7 @@ let g:rails_projections = {
   \   "test": "spec/services/%s_spec.rb",
   \   "affinity": "model",
   \   "related": "app/generates/{}.rb",
+  \   "alternate": "spec/requests/{}_spec.rb",
   \ },
   \ "app/generates/v1/*.rb": {
   \   "command": "rpc",
@@ -35,7 +36,7 @@ let g:rails_projections = {
   \   "related": "app/services/%s_service.rb",
   \ },
   \ "spec/requests/*_spec.rb": {
-  \   "alternate": "app/controllers/%s_controller.rb",
+  \   "alternate": "app/services/%s_service.rb",
   \   "related": "app/services/%s_service.rb"
   \ },
   \ "spec/factories/*.rb": {
