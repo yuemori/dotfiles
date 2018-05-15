@@ -11,6 +11,8 @@ export PATH="$PATH:$GOPATH/bin"
 export LANG=ja_JP.UTF-8
 alias tmux='tmux -u'
 alias stern='noglob stern'
+alias ssh='TERM=xterm ssh'
+alias k='kubectl'
 if [ -z "$TMUX" -a -z "$TERM" ];then
   export TERM=xterm-256color
 fi
@@ -50,14 +52,6 @@ bindkey -e
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
-
-# プロンプト
-# 1行表示
-# PROMPT="%~ %# "
-# 2行表示
-PROMPT="%{${fg[red]}%}[%n@%m]%{${reset_color}%} %~
-%# "
-
 
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
@@ -277,8 +271,9 @@ setopt prompt_subst
 # zshを可愛くする
 # by http://qiita.com/kubosho_/items/c200680c26e509a4f41c
 # プロンプト指定
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT="
-[%n] %{${fg[yellow]}%}%~%{${reset_color}%}
+[\$(date +\"%Y-%m-%d %X\")] %{${fg[yellow]}%}%~%{${reset_color}%} \$(kube_ps1)
 %(?.%{$fg[green]%}.%{$fg[blue]%})%(?!(*'-') <!(*;-;%)? <)%{${reset_color}%} "
 # プロンプト指定(コマンドの続き)
 PROMPT2='[%n]> '
@@ -587,3 +582,4 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+source <(kubectl completion zsh)
