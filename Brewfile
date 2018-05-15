@@ -34,6 +34,11 @@ brew 'protobuf'
 brew 'mysql'
 brew 'postgresql'
 
+# kubetools
+brew 'kube-ps1'
+brew 'kubectx'
+brew 'kubernetes-cli'
+
 # gnu
 brew 'gnu-getopt'
 brew 'coreutils'
