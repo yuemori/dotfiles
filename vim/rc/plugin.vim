@@ -8,6 +8,7 @@ function! s:source_plugin(name) abort
 endfunction
 
 call s:source_plugin('agit')
+call s:source_plugin('terraform')
 call s:source_plugin('ag')
 call s:source_plugin('dash')
 call s:source_plugin('fugitive')

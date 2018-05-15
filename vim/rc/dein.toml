@@ -23,6 +23,9 @@ depends = 'kana/vim-smartinput'
 repo = 'cohama/vim-smartinput-endwise'
 
 [[plugins]]
+repo = 'hashivim/vim-terraform'
+
+[[plugins]]
 repo = 'kana/vim-smartinput'
 
 [[plugins]]
