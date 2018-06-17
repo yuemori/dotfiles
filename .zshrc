@@ -95,6 +95,9 @@ function _update_vcs_info_msg() {
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
+function sushi() {
+  ruby -e 'C=`stty size`.scan(/\d+/)[1].to_i;S="\xf0\x9f\x8d\xa3";a={};puts "\033[2J";loop{a[rand(C)]=0;a.each{|x,o|;a[x]+=1;print "\033[#{o};#{x}H \033[#{a[x]};#{x}H#{S} \033[0;0H"};$stdout.flush;sleep 0.01}'
+}
 ########################################
 # オプション
 # 日本語ファイル名を表示可能にする
@@ -173,6 +176,18 @@ elif which putclip >/dev/null 2>&1 ; then
     # Cygwin
     alias -g C='| putclip'
 fi
+
+function find-pr() {
+  local parent=$2||'master'
+  git log $1..$2 --merges --ancestry-path --reverse --oneline | head -n1
+}
+
+# 特定のPRを開く
+function find-pr-open() {
+  local pr="$(find-pr $1 $2 | awk '{print substr($5, 2)}')"
+  local repo="$(git config --get remote.origin.url | sed 's/git@github.com://' | sed 's/\.git$//')"
+  open "https://github.com/${repo}/pull/${pr}"
+}
 
 ########################################
 # ag
