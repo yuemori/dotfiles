@@ -18,6 +18,14 @@ depends = 'neomru.vim'
 on_cmd = ['Unite', 'UniteWithBufferDir', 'UniteWithCurrentDir']
 
 [[plugins]]
+repo = 'weirongxu/plantuml-previewer.vim'
+on_ft = ['plantuml']
+
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+on_ft = ['plantuml']
+
+[[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 on_ft = ['yaml']
 

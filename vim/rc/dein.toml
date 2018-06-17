@@ -13,6 +13,9 @@ repo = 'kassio/neoterm'
 if = 'has("nvim")'
 
 [[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
