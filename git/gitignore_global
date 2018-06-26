@@ -20,7 +20,7 @@ samples
 # vim
 .vim/bundle/
 .vim/.netrwhist
-.vimrc_sample
+.vimrc.local
 .vagrant
 
 # ruby

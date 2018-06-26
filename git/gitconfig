@@ -43,9 +43,10 @@
 	root = /Users/yuemori/ghq/src
 [merge]
 	tool = vimdiff
-  conflictstyle = diff3
+	conflictstyle = merge
 [mergetool]
-  prompt = true
+	prompt = false
+	keepBackup = false
 [mergetool "vimdiff"]
   cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [push]
