@@ -130,9 +130,6 @@ build = "cp ~/.cache/dein/repos/github.com/chriskempson/vim-tomorrow-theme/color
 repo = 'ujihisa/unite-colorscheme'
 
 [[plugins]]
-repo = 'scrooloose/syntastic'
-
-[[plugins]]
 repo = 'thinca/vim-ref'
 
 [[plugins]]
@@ -142,9 +139,4 @@ repo = 'kana/vim-smartchr'
 repo = 'tpope/vim-endwise'
 
 [[plugins]]
-repo = 'neomake/neomake'
-if = 'has("nvim")'
-hook_add = '''
-let g:neomake_open_list = 2
-autocmd! BufWritePost * Neomake
-'''
+repo = 'w0rp/ale'

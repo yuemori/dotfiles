@@ -75,3 +75,12 @@ on_ft = ['ruby', 'rb', 'erb']
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
+
+[[plugins]]
+repo = 'nsf/gocode'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+on_ft = 'go'
+build = 'make'

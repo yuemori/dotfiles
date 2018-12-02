@@ -3,6 +3,7 @@
 "-------------------------------------------------------------------------------
 let g:OmniSharp_selector_ui = 'unite'
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+let g:OmniSharp_server_use_mono = 1
 
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
