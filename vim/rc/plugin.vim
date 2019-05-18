@@ -7,6 +7,7 @@ function! s:source_plugin(name) abort
   execute 'source' resolve(s:plugin_dir. '/' . a:name . '.vim')
 endfunction
 
+call s:source_plugin('ale')
 call s:source_plugin('agit')
 call s:source_plugin('terraform')
 call s:source_plugin('ag')

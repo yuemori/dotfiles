@@ -13,6 +13,15 @@ alias tmux='tmux -u'
 alias stern='noglob stern'
 alias ssh='TERM=xterm ssh'
 alias k='kubectl'
+alias kg="kubectl get"
+alias kgp="kubectl get pods"
+alias ka="kubectl apply -f"
+alias kd="kubectl describe"
+alias krm="kubectl delete"
+alias klo="kubectl logs -f"
+alias kex="kubectl exec -i -t"
+alias kns="kubens"
+alias kctx="kubectx"
 if [ -z "$TMUX" -a -z "$TERM" ];then
   export TERM=xterm-256color
 fi
@@ -484,7 +493,7 @@ fco() {
 
 # fcs - get git commit sha
 # example usage: git rebase -i `fcs`
-fcs() {
+glo() {
   local commits commit
   commits=$(git log --color=always --pretty=oneline --abbrev-commit --reverse) &&
   commit=$(echo "$commits" | fzf --tac +s +m -e --ansi --reverse) &&
@@ -598,3 +607,9 @@ export XDG_CONFIG_HOME=$HOME/.config
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 source <(kubectl completion zsh)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/google-cloud-sdk/completion.zsh.inc'; fi

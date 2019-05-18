@@ -32,6 +32,9 @@
 	rs = rebase --skip
 	mt = mergetool --tool=vimdiff
 	cleanup = "!git branch --merged | grep -v '*' | grep -v master | xargs git branch -d"
+	showpr = "!f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
+	openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
+  update = "!git fetch --prune && git cleanup && git branch -f master origin/master"
 
 [credential]
 	helper = osxkeychain
