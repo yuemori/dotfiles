@@ -6,6 +6,7 @@
 ########################################
 # 環境変数
 export PATH="/usr/local/share/git-core/contrib/diff-highlight:/usr/local/bin/:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export GOPATH="$HOME/ghq"
 export PATH="$PATH:$GOPATH/bin"
 export LANG=ja_JP.UTF-8
@@ -17,11 +18,13 @@ alias kg="kubectl get"
 alias kgp="kubectl get pods"
 alias ka="kubectl apply -f"
 alias kd="kubectl describe"
-alias krm="kubectl delete"
+alias kdel="kubectl delete"
 alias klo="kubectl logs -f"
 alias kex="kubectl exec -i -t"
 alias kns="kubens"
 alias kctx="kubectx"
+alias gssh="gcloud compute ssh"
+alias giap="gcloud compute ssh --tunnel-through-iap"
 if [ -z "$TMUX" -a -z "$TERM" ];then
   export TERM=xterm-256color
 fi
@@ -297,7 +300,7 @@ setopt prompt_subst
 # プロンプト指定
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT="
-[\$(date +\"%Y-%m-%d %X\")] %{${fg[yellow]}%}%~%{${reset_color}%} \$(kube_ps1)
+[\$(date +\"%Y-%m-%d %X\")][${OSTYPE}] %{${fg[yellow]}%}%~%{${reset_color}%} \$(kube_ps1)
 %(?.%{$fg[green]%}.%{$fg[blue]%})%(?!(*'-') <!(*;-;%)? <)%{${reset_color}%} "
 # プロンプト指定(コマンドの続き)
 PROMPT2='[%n]> '
@@ -330,7 +333,7 @@ function tmux_automatically_attach_session()
         ! is_exists 'tmux' && return 1
 
         if is_tmux_runnning; then
-          cat ~/dotfiles/mandra.txt
+          cat ~/dotfiles/zunda.ansi
             # echo "${fg_bold[red]} _____ __  __ _   ___  __ ${reset_color}"
             # echo "${fg_bold[red]}|_   _|  \/  | | | \ \/ / ${reset_color}"
             # echo "${fg_bold[red]}  | | | |\/| | | | |\  /  ${reset_color}"
@@ -613,3 +616,6 @@ if [ -f '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/googl
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/google-cloud-sdk/completion.zsh.inc'; fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
