@@ -1,198 +1,142 @@
-cask_args appdir: '/Applications'
-tap 'caskroom/cask'
-tap 'caskroom/versions'
-tap 'homebrew/bundle'
-tap 'homebrew/dupes'
-tap 'homebrew/core'
-tap 'homebrew/services'
-tap 'neovim/neovim'
+-cask_args appdir: '/Applications'
 
-# android
-cask 'android-platform-tools'
+tap "aylei/tap"
+tap "golangci/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/dupes"
+tap "homebrew/services"
+tap "ktr0731/evans"
+tap "neovim/neovim"
+tap "sanemat/font"
 
-# sqlite
-brew 'sqlite'
+brew "ack"
+brew "sqlite"
+brew "aria2"
+brew "autoconf"
+brew "automake"
+brew "bash-completion"
+brew "binutils", link: true
+brew "chromedriver"
+brew "colordiff"
+brew "coreutils"
+brew "ctags"
+brew "ctop"
+brew "curl"
+brew "diffutils"
+brew "direnv"
+brew "ed"
+brew "elixir"
+brew "findutils", args: ["with-default-names"]
+brew "libtool"
+brew "mpfr"
+brew "gawk"
+brew "isl"
+brew "libmpc"
+brew "gcc"
+brew "gd"
+brew "ghq"
+brew "git"
+brew "gnu-getopt"
+brew "gnu-sed", args: ["with-default-names"]
+brew "gnu-tar"
+brew "go"
+brew "graphviz"
+brew "grep", args: ["with-default-names"]
+brew "gzip"
+brew "helm"
+brew "hub"
+brew "little-cms2"
+brew "imagemagick"
+brew "ios-deploy"
+brew "jemalloc"
+brew "jenv"
+brew "oniguruma"
+brew "jq"
+brew "kubernetes-cli"
+brew "kube-ps1"
+brew "kubectx"
+brew "kustomize"
+brew "less"
+brew "libevent"
+brew "libsass"
+brew "unibilium"
+brew "libtermkey"
+brew "libuv"
+brew "libvterm"
+brew "libxml2"
+brew "lua"
+brew "lv"
+brew "lynx"
+brew "make", args: ["with-default-names"]
+brew "mas"
+brew "maven"
+brew "msgpack"
+brew "mysql"
+brew "ncurses"
+brew "neovim"
+brew "nkf"
+brew "node"
+brew "node@6"
+brew "nodebrew"
+brew "openssh"
+brew "openssl@1.1"
+brew "peco"
+brew "postgresql"
+brew "protobuf"
+brew "pwgen"
+brew "pyenv"
+brew "pyenv-virtualenv"
+brew "ruby-build"
+brew "rbenv"
+brew "rbenv-default-gems"
+brew "redis"
+brew "rsync"
+brew "ruby"
+brew "shellcheck"
+brew "shtool"
+brew "ssh-copy-id"
+brew "stern"
+brew "terminal-notifier"
+brew "the_silver_searcher"
+brew "tig"
+brew "tmux"
+brew "tree"
+brew "typescript"
+brew "vim"
+brew "watch"
+brew "watchman"
+brew "wget"
+brew "yarn"
+brew "zsh"
+brew "zsh-completions"
+brew "aylei/tap/kubectl-debug"
+brew "golangci/tap/golangci-lint"
+brew "sanemat/font/ricty"
+cask "alfred"
+cask "android-platform-tools"
+cask "atom"
+cask "docker"
+cask "google-chrome"
+cask "google-cloud-sdk"
+cask "google-japanese-ime"
+cask "gyazo"
+cask "hyperswitch"
+cask "iterm2"
+cask "kindle"
+cask "licecap"
+cask "marp"
+cask "skitch"
+cask "skype"
+cask "slack"
+cask "vagrant"
+cask "virtualbox"
+cask "visual-studio-code"
+cask "xquartz"
 
-# pyenv
-brew 'pyenv'
-brew 'pyenv-virtualenv'
-
-# ansible
-brew 'ansible'
-brew 'openssl@1.1'
-brew 'python'
-brew 'python3'
-
-# docker
-brew 'ctop'
-cask 'docker'
-
-# protobuf
-brew 'protobuf'
-
-# database
-brew 'mysql'
-brew 'postgresql'
-
-# kubetools
-brew 'kube-ps1'
-brew 'kubectx'
-brew 'kubernetes-cli'
-
-# gnu
-brew 'gnu-getopt'
-brew 'coreutils'
-brew 'diffutils'
-brew 'findutils', args: ['with-default-names']
-brew 'ed', args: ['with-default-names']
-brew 'gnu-sed', args: ['with-default-names']
-brew 'gnu-tar', args: ['with-default-names']
-brew 'grep', args: ['with-default-names']
-brew 'gzip'
-brew 'less'
-brew 'make', args: ['with-default-names']
-brew 'ncurses'
-brew 'openssh'
-brew 'rsync'
-brew 'gawk'
-brew 'gmp'
-brew 'mpfr'
-brew 'binutils'
-brew 'openssl'
-
-# graphviz
-brew 'graphviz'
-brew 'gd'
-brew 'webp'
-
-# font
-tap 'sanemat/font'
-brew 'ricty'
-brew 'freetype'
-brew 'fontconfig'
-brew 'fontforge'
-brew 'pixman'
-brew 'cairo'
-brew 'jpeg'
-brew 'gobject-introspection'
-brew 'ricty'
-brew 'harfbuzz'
-brew 'pango'
-brew 'terminal-notifier'
-
-# git
-brew 'git'
-brew 'git-lfs'
-brew 'hub'
-brew 'gibo'
-
-# basic
-brew 'glib'
-brew 'autoconf'
-brew 'automake'
-brew 'libyaml'
-brew 'libffi'
-brew 'libpng'
-brew 'libtiff'
-brew 'libtool'
-brew 'libmpc'
-brew 'libevent'
-brew 'libsass'
-brew 'libtermkey'
-brew 'libuv'
-brew 'libvterm'
-brew 'libxml2'
-brew 'little-cms2'
-brew 'pkg-config'
-brew 'gettext'
-brew 'pcre'
-
-# shell
-brew 'bash-completion'
-brew 'colordiff'
-brew 'ctags'
-brew 'curl'
-brew 'direnv'
-brew 'ghq'
-brew 'the_silver_searcher'
-brew 'tig'
-brew 'shellcheck'
-brew 'tmux'
-brew 'tree'
-brew 'wget'
-brew 'zsh', args: ['without-etcdir']
-brew 'zsh-completions'
-brew 'watch'
-brew 'gdbm'
-brew 'readline'
-brew 'ssh-copy-id'
-brew 'openssh'
-brew 'ack'
-
-# make
-brew 'cmake'
-brew 'gcc'
-brew 'isl'
-
-# image
-brew 'imagemagick'
-
-# javascript
-brew 'yarn'
-brew 'go'
-brew 'xz'
-brew 'jenv'
-brew 'oniguruma'
-brew 'jq'
-brew 'jo'
-brew 'lua'
-brew 'mas'
-brew 'msgpack'
-brew 'nkf'
-brew 'node'
-brew 'icu4c'
-brew 'peco'
-brew 'ruby-build'
-brew 'rbenv'
-brew 'rbenv-default-gems'
-brew 'reattach-to-user-namespace'
-brew 'phantomjs'
-
-# redis
-brew 'redis'
-brew 'jemalloc'
-
-# vim
-brew 'vim', args: ['with-lua', 'with-ruby']
-brew 'ruby'
-brew 'neovim/neovim/neovim'
-brew 'unibilium'
-brew 'lynx'
-
-# elixir
-brew 'elixir'
-
-# cask
-cask 'alfred'
-cask 'atom'
-cask 'caffeine'
-cask 'genymotion'
-cask 'google-chrome'
-cask 'google-japanese-ime'
-cask 'gyazo'
-cask 'iterm2'
-cask 'skitch'
-cask 'skype'
-cask 'slack'
-cask 'vagrant'
-cask 'virtualbox'
-cask 'kindle'
-cask 'xquartz'
-cask 'hyperswitch'
-cask 'dash'
-cask 'insomniax'
-cask 'marp'
-
-# mas
-mas 'Kobito', id: 896624060
-mas 'BetterSnapTool', id: 417375580
+mas "1Password 7", id: 1333542190
+mas "BetterSnapTool", id: 417375580
+mas "Red Hot Timer", id: 929960914
+mas "Xcode", id: 497799835
