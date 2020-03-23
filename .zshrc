@@ -18,13 +18,14 @@ alias kg="kubectl get"
 alias kgp="kubectl get pods"
 alias ka="kubectl apply -f"
 alias kd="kubectl describe"
-alias kdel="kubectl delete"
+alias krm="kubectl delete"
 alias klo="kubectl logs -f"
 alias kex="kubectl exec -i -t"
 alias kns="kubens"
 alias kctx="kubectx"
 alias gssh="gcloud compute ssh"
 alias giap="gcloud compute ssh --tunnel-through-iap"
+
 if [ -z "$TMUX" -a -z "$TERM" ];then
   export TERM=xterm-256color
 fi
@@ -37,6 +38,12 @@ fi
 if which pyenv-virtualenv-init > /dev/null;then
   eval "$(pyenv virtualenv-init -)"
 fi
+
+export GOENV_ROOT=$HOME/.goenv
+export PATH=$GOENV_ROOT/bin:$PATH
+export GOENV_DISABLE_GOPATH=1
+export GO111MODULE=on
+eval "$(goenv init -)"
 
 export EDITOR=nvim
 set_bundle_gemfile () {

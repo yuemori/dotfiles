@@ -26,6 +26,8 @@ call s:source_plugin('vimfiler')
 call s:source_plugin('vim-indent-guides')
 call s:source_plugin('zenkaku')
 call s:source_plugin('vim-go')
+call s:source_plugin('neosnippet')
+call s:source_plugin('golang')
 
 if !has('nvim')
   call dein#add('roxma/nvim-yarp')
