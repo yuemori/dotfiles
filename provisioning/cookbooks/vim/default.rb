@@ -57,6 +57,6 @@ include_recipe '../pyenv'
   end
 end
 
-execute "bash -lc \"rbenv shell 2.4.1 && gem install neovim\"" do
-  not_if "bash -lc \"rbenv shell 2.4.1 && gem search --installed neovim\""
+execute "bash -lc \"rbenv shell 2.6.3 && gem install neovim\"" do
+  not_if "bash -lc \"rbenv shell 2.6.3 && gem search --installed neovim\""
 end

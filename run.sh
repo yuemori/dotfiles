@@ -5,8 +5,9 @@ set -exu
 case ${OSTYPE} in
   darwin*)
     if [ ! $(which mitamae) ];then
-      wget https://github.com/itamae-kitchen/mitamae/releases/download/v1.4.5/mitamae-x86_64-darwin -O /usr/bin/mitamae
-      chmod +x /usr/bin/mitamae
+      curl -L https://github.com/itamae-kitchen/mitamae/releases/latest/download/mitamae-x86_64-darwin.tar.gz | tar xvz
+      sudo mv mitamae-x86_64-darwin /usr/bin/mitamae
+      sudo chmod +x /usr/bin/mitamae
     fi
 
     echo "{ \"home\":\"/Users/$USER\",\"current_user\":\"$USER\" }" > $HOME/node.json

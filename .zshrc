@@ -6,6 +6,7 @@
 ########################################
 # 環境変数
 export PATH="/usr/local/share/git-core/contrib/diff-highlight:/usr/local/bin/:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export GOPATH="$HOME/ghq"
 export PATH="$PATH:$GOPATH/bin"
@@ -286,7 +287,6 @@ case ${OSTYPE} in
         ;;
 esac
 
-
 eval SSH_AUTH_SOCK=/var/folders/2w/56d_fszd75d0j36hymfql8dm0000gn/T//ssh-TrCPcsdJ3Ybx/agent.63238; export SSH_AUTH_SOCK;
 SSH_AGENT_PID=63239; export SSH_AGENT_PID;
 
@@ -340,12 +340,11 @@ function tmux_automatically_attach_session()
         ! is_exists 'tmux' && return 1
 
         if is_tmux_runnning; then
-          cat ~/dotfiles/zunda.ansi
-            # echo "${fg_bold[red]} _____ __  __ _   ___  __ ${reset_color}"
-            # echo "${fg_bold[red]}|_   _|  \/  | | | \ \/ / ${reset_color}"
-            # echo "${fg_bold[red]}  | | | |\/| | | | |\  /  ${reset_color}"
-            # echo "${fg_bold[red]}  | | | |  | | |_| |/  \  ${reset_color}"
-            # echo "${fg_bold[red]}  |_| |_|  |_|\___//_/\_\ ${reset_color}"
+          echo "${fg_bold[red]} _____ __  __ _   ___  __ ${reset_color}"
+          echo "${fg_bold[red]}|_   _|  \/  | | | \ \/ / ${reset_color}"
+          echo "${fg_bold[red]}  | | | |\/| | | | |\  /  ${reset_color}"
+          echo "${fg_bold[red]}  | | | |  | | |_| |/  \  ${reset_color}"
+          echo "${fg_bold[red]}  |_| |_|  |_|\___//_/\_\ ${reset_color}"
         elif is_screen_running; then
             echo "This is on screen."
         fi
@@ -387,7 +386,6 @@ function tmux_automatically_attach_session()
         fi
     fi
 }
-tmux_automatically_attach_session
 
 ########################################
 # pecoでヒストリ補完
@@ -604,14 +602,6 @@ alias chrome='google-chrome'
 
 alias -s html=chrome
 
-if [ -e /usr/libexec/java_home ];then
-  JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-  export PATH=$JAVA_HOME/bin:$PATH
-
-  [ -e "$HOME/.embulk/bin/embulk" ] && export PATH="$HOME/.embulk/bin:$PATH"
-  [ -e "$HOME/.digdag/bin/digdag" ] && export PATH="$HOME/.digdag/bin:$PATH"
-fi
-
 export XDG_CONFIG_HOME=$HOME/.config
 
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
@@ -626,3 +616,4 @@ if [ -f '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/googl
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+tmux_automatically_attach_session
