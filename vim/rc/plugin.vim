@@ -28,6 +28,7 @@ call s:source_plugin('zenkaku')
 call s:source_plugin('vim-go')
 call s:source_plugin('neosnippet')
 call s:source_plugin('golang')
+call s:source_plugin('elixir')
 
 if !has('nvim')
   call dein#add('roxma/nvim-yarp')

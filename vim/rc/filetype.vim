@@ -44,3 +44,5 @@ au BufNewFile,BufRead *.tpl set filetype=mustache
 au BufNewFile,BufRead *.tf set filetype=terraform
 au BufNewFile,BufRead *.tf setlocal ts=2 sw=2 sts=2 et
 aut FileType terraform setlocal ts=2 sw=2 sts=2 et
+
+au BufNewFile,BufRead *.ex set filetype=elixir

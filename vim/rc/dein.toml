@@ -157,3 +157,9 @@ hook_add = '''
   nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 '''
 
+[[plugins]]
+repo = 'elixir-editors/vim-elixir'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']

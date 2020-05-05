@@ -83,3 +83,7 @@ hook_add = '''
 repo = 'zchee/deoplete-go'
 on_ft = 'go'
 build = 'make'
+
+[[plugins]]
+repo = 'mhinz/vim-mix-format'
+on_ft = ['ex', 'exs', 'eex', 'leex']
