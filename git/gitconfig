@@ -1,8 +1,7 @@
 [user]
 	name = yuemori
 	email = moonoverwalker@gmail.com
-[color]
-	ui = true
+[color] ui = true
 [alias]
 	ch = checkout
 	st = status
@@ -15,14 +14,14 @@
   log-all = log --graph --all --color --pretty=format:'%x09%h %cn%x09%s %Cred%d%Creset'
   log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
   current-branch = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
+  cb = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
 	ds = diff --staged
 	dc = diff --cached
 	cp = cherry-pick
 	dh = diff HEAD
-	amend = commit --amend
+	amend = commit --amend --no-edit --no-verify
 	s = status
 	a = add
-	am = commit --amend
 	c = commit
 	b = branch
 	t = log --graph --decorate --oneline -n 10
@@ -33,17 +32,17 @@
 	mt = mergetool --tool=vimdiff
 	cleanup = "!git branch --merged | grep -v '*' | grep -v master | xargs git branch -d"
 	showpr = "!f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
-	openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
+	openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...origin/develop | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
   update = "!git fetch --prune && git cleanup && git branch -f master origin/master"
 
 [credential]
 	helper = osxkeychain
 [core]
 	editor = nvim
-	excludesfile = /Users/yuemori/.gitignore_global
+	excludesfile = /Users/yasutomo.uemori/.gitignore_global
 	filemode = true
 [ghq]
-	root = /Users/yuemori/ghq/src
+	root = /Users/yasutomo.uemori/ghq/src
 [merge]
 	tool = vimdiff
 	conflictstyle = merge
@@ -73,3 +72,7 @@
 	required = true
 [diff "sqlite3"]
 	textconv = sqlite3 $1 .dump
+[diff "json"]
+	textconv = "jq --sort-keys ."
+[fetch]
+	prune = true

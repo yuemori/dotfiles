@@ -22,12 +22,8 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 "" キーマッピング
-" バッファ一覧
-nnoremap <Space>ub :<C-u>Unite buffer<CR>
-" プロジェクトファイル
-nnoremap <Space>uo :<C-u>Unite file_rec/async:!<CR>
-" ファイル一覧
-nnoremap <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" file grep
+nnoremap <Space>ug :<C-u>Unite file_rec/git<CR>
 " レジスタ一覧
 nnoremap <Space>ur :<C-u>Unite -buffer-name=register register<CR>
 " 最近使用したファイル一覧
@@ -36,12 +32,6 @@ nnoremap <Space>um :<C-u>Unite file_mru<CR>
 nnoremap <Space>uy :<C-u>Unite history/yank<CR>
 " 常用セット
 nnoremap <Space>uu :<C-u>Unite file_mru buffer<CR>
-" grep
-nnoremap <Space>ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-" grep検索結果の再呼び出し
-nnoremap <Space>ur :<C-u>UniteResume search-buffer<CR>
-" grep検索結果の再呼び出し
-nnoremap <Space>ul :<C-u>Unite line<CR>
 
 " unite grepにagを使う
 if executable('ag')

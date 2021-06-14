@@ -71,7 +71,7 @@ depends = ['context_filetype.vim']
 repo = 'Shougo/context_filetype.vim'
 
 ## [[plugins]]
-## repo = 'Shougo/denite.nvim'
+# repo = 'Shougo/denite.nvim'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -163,3 +163,18 @@ repo = 'elixir-editors/vim-elixir'
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
+
+[[plugins]]
+repo = 'vim-test/vim-test'
+
+[[plugins]]
+repo = 'skywind3000/asyncrun.vim'
+
+[[plugins]]
+repo = 'c-brenn/phoenix.vim'
+
+[[plugins]]
+repo = 'tpope/vim-projectionist'
+
+[[plugins]]
+repo = "tpope/vim-dispatch"

@@ -29,6 +29,8 @@ call s:source_plugin('vim-go')
 call s:source_plugin('neosnippet')
 call s:source_plugin('golang')
 call s:source_plugin('elixir')
+call s:source_plugin('language-client')
+call s:source_plugin('vim-test')
 
 if !has('nvim')
   call dein#add('roxma/nvim-yarp')
