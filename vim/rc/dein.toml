@@ -144,20 +144,6 @@ repo = 'tpope/vim-endwise'
 repo = 'w0rp/ale'
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-build = 'bash install.sh'
-rev = 'next'
-hook_add = '''
-  set hidden
-  let g:LanguageClient_serverCommands = {
-      \ 'go': ['go-langserver']
-      \ }
-  let g:LanguageClient_loadSettings = 1
-  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-'''
-
-[[plugins]]
 repo = 'elixir-editors/vim-elixir'
 
 [[plugins]]
@@ -178,3 +164,12 @@ repo = 'tpope/vim-projectionist'
 
 [[plugins]]
 repo = "tpope/vim-dispatch"
+
+[[plugins]]
+repo = "prabirshrestha/vim-lsp"
+
+[[plugins]]
+repo = "mattn/vim-lsp-settings"
+
+[[plugins]]
+repo = "lighttiger2505/deoplete-vim-lsp"
