@@ -15,8 +15,8 @@ let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 execute 'set runtimepath^=' . s:dein_repo_dir
 
-if dein#load_state(expand('~/.cache/plugins'))
-  call dein#begin(expand('~/.cache/plugins'))
+if dein#load_state(expand('~/.cache/plugins2'))
+  call dein#begin(expand('~/.cache/plugins2'))
   let s:rc_dir = expand('<sfile>:h')
   let s:toml = resolve(s:rc_dir . '/dein.toml')
   let s:lazy_toml = resolve(s:rc_dir . '/dein_lazy.toml')

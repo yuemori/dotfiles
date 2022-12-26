@@ -62,3 +62,49 @@ inoremap <expr><C-e> pumvisible() ? neocomplete#cancel_popup() : "\<End>"
 inoremap <expr><C-g> neocomplete#undo_completion()
 " 補完候補の共通文字列を補完する
 inoremap <expr><C-l> neocomplete#complete_common_string()
+
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
+
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#auto_completion_start_length = 1
+let g:neocomplete#enable_refresh_always = 1
+let g:neocomplete#enable_fuzzy_completion = 0
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_auto_delimiter = 1
+let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_underbar_completion = 1
+let g:neocomplete#enable_camel_case_completion  =  1
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+  let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+if !exists('g:neocomplete#same_filetypes')
+  let g:neocomplete#same_filetypes = {}
+endif
+let g:neocomplete#same_filetypes.ruby = 'eruby'
+
+let g:neocomplete#data_directory = $HOME . '/.vim/cache/neocomplete'
+
+" Enable omni-completion.
+autocmd Filetype ruby,eruby setlocal omnifunc=solargraph#CompleteSolar
+
+" } neocomplete

@@ -85,8 +85,8 @@ on_i = 1
 ## colorscheme
 ##########################
 
-# [[plugins]]
-# repo = 'altercation/vim-colors-solarized'
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
 repo = 'frankier/neovim-colors-solarized-truecolor-only'
@@ -141,9 +141,6 @@ repo = 'kana/vim-smartchr'
 repo = 'tpope/vim-endwise'
 
 [[plugins]]
-repo = 'w0rp/ale'
-
-[[plugins]]
 repo = 'elixir-editors/vim-elixir'
 
 [[plugins]]
@@ -155,6 +152,12 @@ repo = 'vim-test/vim-test'
 
 [[plugins]]
 repo = 'skywind3000/asyncrun.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'c-brenn/phoenix.vim'
@@ -173,3 +176,6 @@ repo = "mattn/vim-lsp-settings"
 
 [[plugins]]
 repo = "lighttiger2505/deoplete-vim-lsp"
+
+[[plugins]]
+repo = "mattn/vim-lsp-icons"

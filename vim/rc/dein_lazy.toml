@@ -2,16 +2,6 @@
 repo = 'Shougo/neomru.vim'
 on_path = '.*'
 
-# [[plugins]]
-# repo = 'Shougo/neocomplcache'
-# if = '!has("lua")'
-# on_i = 1
-# 
-# [[plugins]]
-# repo = 'Shougo/neocomplete'
-# if = 'has("lua")'
-# on_i = 1
-
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
@@ -31,22 +21,12 @@ depends = 'unite.vim'
 on_ft = ['rb', 'ruby', 'erb']
 
 [[plugins]]
-repo = 'iyuuya/unite-rails-fat'
-depends = 'unite.vim'
-on_ft = ['rb', 'ruby', 'erb']
-
-[[plugins]]
 repo = 'mustache/vim-mustache-handlebars'
 on_ft = ['mustache']
 
 [[plugin]]
 repo = 'OrangeT/vim-csharp'
 on_ft = ['cs', 'csi', 'csx']
-
-[[plugins]]
-repo = 'OmniSharp/omnisharp-vim'
-on_ft = ['cs', 'csi', 'csx']
-build = 'xbuild server/OmniSharp.sln'
 
 [[plugin]]
 repo = 'vim-ruby/vim-ruby'
@@ -69,9 +49,9 @@ repo = 'yuku-t/vim-ref-ri'
 on_ft = ['ruby', 'rb', 'erb']
 
 [[plugins]]
-repo = 'mattn/vim-goimports'
-on_ft = 'go'
-
-[[plugins]]
 repo = 'mhinz/vim-mix-format'
 on_ft = ['ex', 'exs', 'eex', 'leex']
+
+[[plugins]]
+repo = 'sebdah/vim-delve'
+on_ft = ['go']
