@@ -40,12 +40,12 @@ when 'ubuntu'
     user 'root'
   end
 when 'darwin'
-  execute 'echo "/usr/local/bin/zsh" >> /etc/shells' do
-    not_if 'test $(grep /usr/local/bin/zsh /etc/shells)'
-    user 'root'
-  end
+  # execute "echo '#{ENV["HOMEBREW_PREFIX"]}/bin/zsh' >> /etc/shells" do
+  #   not_if 'test $(grep /usr/local/bin/zsh /etc/shells)'
+  #   user 'root'
+  # end
 
-  execute 'chsh -s /usr/local/bin/zsh' do
-    user 'root'
-  end
+  # execute 'chsh -s /usr/local/bin/zsh' do
+  #   user 'root'
+  # end
 end

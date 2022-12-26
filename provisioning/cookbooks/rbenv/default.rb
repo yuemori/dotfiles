@@ -18,12 +18,12 @@ when 'ubuntu'
   end
 end
 
-%w[2.6.3].each do |version|
+%w[3.1.3].each do |version|
   execute "bash -lc \"rbenv install #{version}\"" do
     not_if "bash -lc \"rbenv versions | grep -e #{version}\""
   end
 end
 
-execute "bash -lc \"rbenv global 2.6.3\"" do
-  not_if "bash -lc \"rbenv version | grep 2.6.3\""
+execute "bash -lc \"rbenv global 3.1.3\"" do
+  not_if "bash -lc \"rbenv version | grep 3.1.3\""
 end

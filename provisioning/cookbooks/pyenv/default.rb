@@ -19,7 +19,7 @@ when 'ubuntu'
   end
 end
 
-{ 2 => "2.7.13", 3 => "3.6.1" }.each do |version, full_version|
+{ 3 => "3.11.1" }.each do |version, full_version|
   execute "bash -lc \"pyenv install #{full_version}\"" do
     not_if "bash -lc \"pyenv versions | grep #{full_version}\""
   end

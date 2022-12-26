@@ -37,17 +37,17 @@ end
 
 directory "#{node[:home]}/.cache/dein"
 
-execute "wget https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh -O /tmp/installer.sh" do
+execute "sh -c \"$(wget -O- https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)\"" do
   not_if "test -e #{node[:home]}/.cache/dein/repos/github.com/Shougo/dein.vim"
 end
 
-execute "sh /tmp/installer.sh #{node[:home]}/.cache/dein" do
-  not_if "test -e #{node[:home]}/.cache/dein/repos/github.com/Shougo/dein.vim"
-end
+# execute "sh /tmp/installer.sh #{node[:home]}/.cache/dein" do
+#   not_if "test -e #{node[:home]}/.cache/dein/repos/github.com/Shougo/dein.vim"
+# end
 
 include_recipe '../pyenv'
 
-%w[2 3].each do |version|
+%w[3].each do |version|
   execute "bash -lc \"pyenv virtualenv python#{version} neovim#{version}\"" do
     not_if "bash -lc \"pyenv versions | grep neovim#{version}\""
   end
@@ -57,6 +57,6 @@ include_recipe '../pyenv'
   end
 end
 
-execute "bash -lc \"rbenv shell 2.6.3 && gem install neovim\"" do
-  not_if "bash -lc \"rbenv shell 2.6.3 && gem search --installed neovim\""
+execute "bash -lc \"rbenv shell 3.1.3 && gem install neovim\"" do
+  not_if "bash -lc \"rbenv shell 3.1.3 && gem search --installed neovim\""
 end
