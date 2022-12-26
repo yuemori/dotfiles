@@ -5,8 +5,8 @@
 
 ########################################
 # 環境変数
-export PATH="/usr/local/share/git-core/contrib/diff-highlight:/usr/local/bin/:$PATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$HOMEBREW_PREFIX/share/git-core/contrib/diff-highlight:/usr/local/bin/:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export GOPATH="$HOME/ghq"
 export PATH="$PATH:$GOPATH/bin"
@@ -38,8 +38,9 @@ then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$HOME/.pyenv/shims:$HOME/.pyenv/bin:$PATH"
   eval "$(pyenv init -)"
-  export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
-  export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
+  export LDFLAGS="-L$HOMEBREW_PREFIX/opt/zlib/lib"
+  export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/zlib/include"
+  alias pyenv="SDKROOT=$(xcrun --show-sdk-path) pyenv"
 fi
 
 if which pyenv-virtualenv-init > /dev/null;then
@@ -311,7 +312,7 @@ setopt prompt_subst
 # zshを可愛くする
 # by http://qiita.com/kubosho_/items/c200680c26e509a4f41c
 # プロンプト指定
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+source "$HOMEBREW_PREFIX/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT="
 [\$(date +\"%Y-%m-%d %X\")] %{${fg[yellow]}%}%~%{${reset_color}%} $fg[blue][\$(cat ~/.config/gcloud/configurations/config_default | grep project | sed -E 's/^\project = (.*)$/\1/')] \$(kube_ps1)
 %(?.%{$fg[green]%}.%{$fg[blue]%})%(?!(*'-') <!(*;-;%)? <)%{${reset_color}%} "
@@ -578,7 +579,7 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 #ファイル補完候補に色を付ける
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-alias -s {rb,yml,yaml,conf,md}='vi'
+alias -s {rb,yml,yaml,conf,md,go}='vi'
 
 if [ `uname` = "Darwin" ]; then
   alias eog='open -a Preview'
@@ -611,8 +612,8 @@ alias -s html=chrome
 
 export XDG_CONFIG_HOME=$HOME/.config
 
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 source <(kubectl completion zsh)
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -624,4 +625,4 @@ if [ -f '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/googl
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 tmux_automatically_attach_session
-. $(brew --prefix asdf)/asdf.sh
+. $(brew --prefix asdf)/libexec/asdf.sh
