@@ -30,3 +30,4 @@ Gemfile.local.lock
 
 # direnv
 .envrc
+.projections.json

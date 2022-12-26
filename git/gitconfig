@@ -76,3 +76,5 @@
 	textconv = "jq --sort-keys ."
 [fetch]
 	prune = true
+[http]
+  postBuffer = 524288000
