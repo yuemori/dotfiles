@@ -47,4 +47,4 @@ aut FileType terraform setlocal ts=2 sw=2 sts=2 et
 
 au BufNewFile,BufRead *.ex set filetype=elixir
 
-let g:ruby_host_prog = '/Users/yasutomo.uemori/.rbenv/shims/neovim-ruby-host'
+let g:ruby_host_prog = '/home/yuemori/.rbenv/shims/neovim-ruby-host'

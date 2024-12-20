@@ -11,9 +11,9 @@ git '/tmp/tmux' do
   not_if 'test $(which tmux)'
 end
 
-execute 'sh autogen.sh && ./configure && make -j4 && make install' do
-  cwd '/tmp/tmux'
-  user 'root'
+#execute 'sh autogen.sh && ./configure && make -j4 && make install' do
+#  cwd '/tmp/tmux'
+#  user 'root'
 
-  not_if 'test $(which tmux)'
-end
+#  not_if 'test $(which tmux)'
+#end

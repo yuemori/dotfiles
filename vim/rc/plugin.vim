@@ -32,6 +32,7 @@ call s:source_plugin('elixir')
 call s:source_plugin('language-client')
 call s:source_plugin('vim-test')
 call s:source_plugin('vim-lsp')
+call s:source_plugin('prettier')
 
 if !has('nvim')
   call dein#add('roxma/nvim-yarp')

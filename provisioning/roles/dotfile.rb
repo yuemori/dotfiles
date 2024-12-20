@@ -15,7 +15,6 @@ end
 
 include_recipe '../cookbooks/symlinks'
 include_recipe '../cookbooks/zsh'
-include_recipe '../cookbooks/docker' if node[:platform] == 'ubuntu'
 include_recipe '../cookbooks/tmux' if node[:platform] == 'ubuntu'
 include_recipe '../cookbooks/pyenv'
 include_recipe '../cookbooks/rbenv'

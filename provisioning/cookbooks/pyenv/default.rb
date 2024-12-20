@@ -19,12 +19,3 @@ when 'ubuntu'
   end
 end
 
-{ 3 => "3.11.1" }.each do |version, full_version|
-  execute "bash -lc \"pyenv install #{full_version}\"" do
-    not_if "bash -lc \"pyenv versions | grep #{full_version}\""
-  end
-
-  execute "bash -lc \"pyenv virtualenv #{full_version} python#{version}\"" do
-    not_if "bash -lc \"pyenv versions | grep -e ^\\\s*python#{version}$\""
-  end
-end

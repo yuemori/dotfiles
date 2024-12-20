@@ -5,8 +5,8 @@
 
 ########################################
 # 環境変数
-export PATH="$HOMEBREW_PREFIX/share/git-core/contrib/diff-highlight:/usr/local/bin/:$PATH"
-export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="${PYENV_ROOT:-$HOME/.pyenv}/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export GOPATH="$HOME/ghq"
 export PATH="$PATH:$GOPATH/bin"
@@ -38,9 +38,6 @@ then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$HOME/.pyenv/shims:$HOME/.pyenv/bin:$PATH"
   eval "$(pyenv init -)"
-  export LDFLAGS="-L$HOMEBREW_PREFIX/opt/zlib/lib"
-  export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/zlib/include"
-  alias pyenv="SDKROOT=$(xcrun --show-sdk-path) pyenv"
 fi
 
 if which pyenv-virtualenv-init > /dev/null;then
@@ -177,9 +174,6 @@ alias ll='ls -l --color'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
-
-
 alias mkdir='mkdir -p'
 
 # sudo の後のコマンドでエイリアスを有効にする
@@ -312,9 +306,8 @@ setopt prompt_subst
 # zshを可愛くする
 # by http://qiita.com/kubosho_/items/c200680c26e509a4f41c
 # プロンプト指定
-source "$HOMEBREW_PREFIX/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT="
-[\$(date +\"%Y-%m-%d %X\")] %{${fg[yellow]}%}%~%{${reset_color}%} $fg[blue][\$(cat ~/.config/gcloud/configurations/config_default | grep project | sed -E 's/^\project = (.*)$/\1/')] \$(kube_ps1)
+[\$(date +\"%Y-%m-%d %X\")] %{${fg[yellow]}%}%~%{${reset_color}%}
 %(?.%{$fg[green]%}.%{$fg[blue]%})%(?!(*'-') <!(*;-;%)? <)%{${reset_color}%} "
 # プロンプト指定(コマンドの続き)
 PROMPT2='[%n]> '
@@ -437,7 +430,6 @@ function peco_open_file_with_editor() {
     zle clear-screen
 }
 zle -N peco_open_file_with_editor
-bindkey '^v' peco_open_file_with_editor
 
 # git status peco
 function peco_select_from_git_status(){
@@ -612,17 +604,25 @@ alias -s html=chrome
 
 export XDG_CONFIG_HOME=$HOME/.config
 
-source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-source <(kubectl completion zsh)
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yuemori/ghq/src/github.com/aiming/kansha/server/api_server/google-cloud-sdk/completion.zsh.inc'; fi
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 tmux_automatically_attach_session
-. $(brew --prefix asdf)/libexec/asdf.sh
+if service docker status 2>&1 | grep -q "is not running"; then
+  wsl.exe --distribution "Ubuntu" --user root --exec /usr/sbin/service docker start > /dev/null 2>&1
+fi
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+eval "$(ssh-agent)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/yuemori/google-cloud-sdk/path.zsh.inc' ]; then . '/home/yuemori/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/yuemori/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/yuemori/google-cloud-sdk/completion.zsh.inc'; fi
+
+# fnm
+FNM_PATH="/home/yuemori/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/yuemori/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi

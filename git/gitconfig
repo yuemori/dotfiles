@@ -30,19 +30,18 @@
 	rc = rebase --continue
 	rs = rebase --skip
 	mt = mergetool --tool=vimdiff
-	cleanup = "!git branch --merged | grep -v '*' | grep -v master | xargs git branch -d"
+	cleanup = "!git branch --merged | grep -v '*' | grep -v 'detached' | grep -v master | grep -v main | xargs git branch -d"
 	showpr = "!f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
 	openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...origin/develop | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
-  update = "!git fetch --prune && git cleanup && git branch -f master origin/master"
+  update = "!git fetch --prune && git checkout origin/main && git cleanup"
+  update-branch = "!git fetch --prune && git rebase origin/main && git cleanup"
 
-[credential]
-	helper = osxkeychain
 [core]
 	editor = nvim
-	excludesfile = /Users/yasutomo.uemori/.gitignore_global
+	excludesfile = /home/yuemori/.gitignore_global
 	filemode = true
 [ghq]
-	root = /Users/yasutomo.uemori/ghq/src
+	root = /home/yuemori/ghq/src
 [merge]
 	tool = vimdiff
 	conflictstyle = merge
@@ -78,3 +77,10 @@
 	prune = true
 [http]
   postBuffer = 524288000
+[credential]
+	credentialStore = secretservice
+	helper = store
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[pull]
+	rebase = true

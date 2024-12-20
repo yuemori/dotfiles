@@ -2,7 +2,7 @@ case node[:platform]
 when 'ubuntu'
   %w[
     autoconf bison build-essential libssl-dev libyaml-dev
-    libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+    libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev
   ].each do |p|
     package p do
       user 'root'

@@ -4,15 +4,6 @@ when 'ubuntu'
     user 'root'
   end
 
-  package 'software-properties-common' do
-    user 'root'
-  end
-
-  execute 'add-apt-repository ppa:neovim-ppa/stable -y && apt-get update -y' do
-    not_if 'test $(which nvim)'
-    user 'root'
-  end
-
   package 'neovim' do
     user 'root'
   end
