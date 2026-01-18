@@ -185,6 +185,7 @@ repo = "github/copilot.vim"
 
 [[plugins]]
 repo = "w0rp/ale"
+on_cmd = ['ALELint', 'ALEToggle', 'ALEEnable', 'ALEToggleBuffer', 'ALEEnableBuffer']
 
 [[plugins]]
 repo = 'prettier/vim-prettier'

@@ -42,3 +42,8 @@ call s:source_rc('filetype.vim')
 
 " プラグイン設定
 call s:source_rc('plugin.vim')
+
+" VSCodeの設定
+if exists('g:vscode')
+  call s:source_rc('vscode.vim')
+endif

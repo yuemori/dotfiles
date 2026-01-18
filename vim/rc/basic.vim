@@ -3,7 +3,7 @@
 "-------------------------------------------------------------------------------
 set vb t_vb=                      " ビープを鳴らさない
 set backspace=indent,eol,start    " バックスペースでなんでも消せるように
-set pastetoggle=<F10>             " F10でpasteモードをトグルする
+" set pastetoggle=<F10>             " F10でpasteモードをトグルする
 set iminsert=0                    " insertモードで自動的にIMEがオンになるのを防ぐ
 set nomodeline                    " モードラインを有効にする
 set modelines=0                   " ３行目までをモードラインとして検索
@@ -38,3 +38,10 @@ augroup quickfixopen
   autocmd!
   autocmd QuickfixCmdPost make cw
 augroup END
+
+command! Profile call s:command_profile()
+function! s:command_profile() abort
+  profile start ~/profile.txt
+  profile func *
+  profile file *
+endfunction

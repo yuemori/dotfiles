@@ -83,8 +83,15 @@ let g:lsp_settings['gopls'] = {
   \  },
   \}
 
+let g:lsp_settings_filetype_typescript = ['typescript-language-server']
+let g:lsp_settings_filetype_typescriptreact = ['typescript-language-server']
+
 let g:lsp_settings['typeprof'] = {
-  \ 'disabled': 1,
+  \ 'disabled': v:true,
+  \}
+
+let g:lsp_settings['eslint-languageserver'] = {
+  \ 'disabled': v:true,
   \}
 
 let g:lsp_settings['golangci-lint-langserver'] = {
